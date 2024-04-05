@@ -1,0 +1,19 @@
+<div class="deliveries">
+  <div class="title">Users that reserved</div>
+  <div class="card" *ngFor="let user of users">
+    <div class="content">
+      <div class="label">
+        User full name:
+        {{ user.firstName + " " + user.lastName }}
+      </div>
+      <div class="label">
+        Email:
+        {{ user.email }}
+      </div>
+      <div class="label">
+        Phone number:
+        {{ user.phoneNumber }}
+      </div>
+    </div>
+  </div>
+</div>

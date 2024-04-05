@@ -1,0 +1,249 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 3rem;
+}
+
+.profile-picture {
+    margin-top: 2rem;
+    font-size: 20rem;
+    color: rgba(107, 22, 22, 1);
+}
+
+.profile-label {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 1);
+    width: 100%;
+}
+
+.profile-section-label {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 1);
+    width: 100%;
+}
+
+.profile-input {
+    height: 2rem;
+    width: calc(100% - 1rem);
+    margin-top: 0.5rem;
+    padding-inline: 0.5rem;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 1);
+    border: rgba(0, 0, 0, 1) 1px solid;
+    border-radius: 0.3125rem;
+    cursor: default;
+}
+
+.cursor-initial {
+    cursor: initial;
+}
+
+.profile-input-error {
+    height: 2rem;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: rgba(255, 0, 0, 1);
+}
+
+.profile-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    padding: 1rem;
+    border: rgba(0, 0, 0, 1) 1px solid;
+    border-radius: 0.625rem;
+}
+
+.profile-section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 1);
+    width: 100%;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.profile-edit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(107, 22, 22, 1);
+    border: rgba(107, 22, 22, 1) 1px solid;
+    border-radius: 0.3125rem;
+    height: 2.5rem;
+    transition: background-color 0.15s;
+    cursor: pointer;
+    width: 100%;
+    margin: 0.5rem;
+}
+
+.profile-edit-button:hover {
+    background-color: rgba(107, 22, 22, 0.9);
+}
+
+.profile-button-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+}
+
+.profile-save-cancel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.profile-save-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(107, 22, 22, 1);
+    border: rgba(107, 22, 22, 1) 1px solid;
+    border-radius: 0.3125rem;
+    height: 2.5rem;
+    transition: background-color 0.15s;
+    cursor: pointer;
+    width: calc(50% - 0.5rem);
+}
+
+.profile-save-button:hover {
+    background-color: rgba(107, 22, 22, 0.9);
+}
+
+.profile-cancel-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 1);
+    border: rgba(0, 0, 0, 1) 1px solid;
+    border-radius: 0.3125rem;
+    height: 2.5rem;
+    transition: background-color 0.15s;
+    cursor: pointer;
+    width: calc(50% - 0.5rem);
+}
+
+.profile-cancel-button-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+}
+
+.profile-cancel-button:hover {
+    background-color: rgba(240, 240, 240, 0.9);
+}
+
+.company-card {
+    display: flex;
+    height: 10rem;
+    width: calc(100% - 1px);
+    border-radius: 0.3125rem;
+    background-color: rgba(255, 255, 255, 1);
+    border: rgba(0, 0, 0, 1) 1px solid;
+    transition: background-color 0.15s;
+    cursor: pointer;
+}
+
+.company-image {
+    height: 100%;
+    width: 10rem;
+    border-top-left-radius: 0.3125rem;
+    border-bottom-left-radius: 0.3125rem;
+}
+
+.company-content {
+    padding-block: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: large;
+    margin-left: 1rem;
+}
+
+.company-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 1rem;
+}
+
+.company-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 0.5rem;
+}
+
+.calendar-wrapper {
+    width: 90%; 
+    height: 70rem;
+    border: 0px solid #ccc;
+  }
+
+.profile-button-row-container {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.star {
+    color: rgba(255,255,0, 1);
+}
+
+.options {
+    display: flex;
+}
+
+.option {
+    display: flex;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.icon-blue {
+    color: blue;
+}
+
+.icon-green {
+    color: green;
+}
+
+.icon-red {
+    color: red;
+}
+
+.title {
+    display: flex;
+}
+
+.header {
+    display: flex;
+}
+
+.card {
+    border: black 1px solid;
+}
+
+
+.map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+  }
+  
+  .map-frame {
+    border: 2px solid black;
+    height: 100%;
+  }
+  
+  #map {
+    height: 100%;
+  }

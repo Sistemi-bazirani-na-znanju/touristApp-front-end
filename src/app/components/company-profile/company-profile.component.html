@@ -1,0 +1,110 @@
+<div class="profile">
+    <fa-icon class="profile-picture" [icon]="faHouse"/>
+    
+    <div class="profile-section">
+        <div class="profile-section-title">Company</div>
+
+        <div class="profile-label">Name:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="Name" [(ngModel)]="companyCopy.name" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.name}}</div>
+
+        <div class="profile-label">Address:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="Address" [(ngModel)]="companyCopy.address" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.address}}</div>
+
+        <div class="profile-label">City:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="City" [(ngModel)]="companyCopy.city" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.city}}</div>
+
+        <div class="profile-label">Country:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="Country" [(ngModel)]="companyCopy.country" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.country}}</div>
+
+        <div class="profile-label">Opening time:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="time" placeholder="Opening time" [(ngModel)]="companyCopy.openingTime" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.openingTime}}</div>
+
+        <div class="profile-label">Closing time:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="time" placeholder="Closing time" [(ngModel)]="companyCopy.closingTime" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.closingTime}}</div>
+        
+        <div class="profile-label">Description:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="Description" [(ngModel)]="companyCopy.description" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.description}}</div>
+
+        <div class="profile-edit-button" *ngIf="!canEdit" (click)="startEditing()">
+            <div class="profile-button-text">Edit</div>
+        </div>
+
+        <div class="profile-save-cancel" *ngIf="canEdit">
+            <div class="profile-save-button" (click)="saveChanges()">
+                <div class="profile-button-text">Save</div>
+            </div>
+            <div class="profile-cancel-button" (click)="endEditing()">
+                <div class="profile-cancel-button-text">Cancel</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-section">
+        <div class="profile-section-title">Administrators</div>
+        <div *ngFor="let ca of companyAdministrators">
+            <div class="profile-label">{{ca.firstName}} {{ca.lastName}}</div>
+        </div>
+    </div>
+
+    <div class="profile-section">
+        <div class="profile-section-title">Equipment</div>
+
+        <div>
+            <input type="text" placeholder="Search..." [(ngModel)]="searchText">
+            <button (click)="searchEquipment()">Search</button>
+        </div>                
+
+        <div class="card" *ngFor="let eq of equipmentSearched">
+            <div class="header">
+                <input class="profile-input" type="text" [readonly]="true"  placeholder="Name" [(ngModel)]="eq.name"/>
+                <input class="profile-input" type="text" [readonly]="true"  placeholder="Description" [(ngModel)]="eq.description"/>
+                <input class="profile-input" type="text" [readonly]="true"  placeholder="Stock count" [(ngModel)]="eq.stockCount"/>
+        
+                <div class="options">
+                    <div class="option"><fa-icon class="icon-blue" (click)="editEquipment(eq)" [icon]="faEdit"></fa-icon></div>
+                    <div class="option"><fa-icon class="icon-red" (click)="removeEquipment(eq)" [icon]="faMinus"></fa-icon></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-edit-button" [routerLink]="['add-equipment']">
+            <div class="profile-button-text">Add equipment</div>
+        </div>
+    </div>
+
+    <div class="profile-section">
+        <div class="profile-section-title">Appointments</div>
+
+        <div class="profile-edit-button" (click)="addAppointment()">
+            <div class="profile-button-text">Add appointment</div>
+        </div>
+    </div>
+
+    <div class="profile-section">
+    <div class="profile-section-title">Appointments Calendar</div>
+    <div class="profile-button-row-container">
+        <div class="profile-edit-button" (click)="selectOptionsMonth()">
+            <div class="profile-button-text">Month Calendar</div>
+        </div>
+        <div class="profile-edit-button" (click)="selectOptionsDay()">
+            <div class="profile-button-text">Week Calendar</div>
+        </div>
+        <div class="profile-edit-button" (click)="selectOptionsYear()">
+            <div class="profile-button-text">Year Calendar</div>
+        </div>
+    </div>
+    </div>
+
+    <div class="calendar-wrapper">
+        <full-calendar *ngIf="optionsMonthSelected" [options]="calendarOptionsMonth"></full-calendar>
+        <full-calendar *ngIf="optionsDaySelected" [options]="calendarOptionsDay"></full-calendar>
+        <full-calendar *ngIf="optionsYearSelected" [options]="calendarOptionsYear"></full-calendar>
+    </div>
+</div>

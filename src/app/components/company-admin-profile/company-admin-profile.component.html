@@ -1,0 +1,64 @@
+<div class="profile">
+    <fa-icon class="profile-picture" [icon]="faUser"/>
+
+    <div class="profile-section">
+        <div class="profile-section-title">Account</div>
+        <div class="profile-section-label">Email: {{companyAdmin.email}}</div>
+    </div>
+
+    <div class="profile-section">
+        <div class="profile-section-title">Personal information</div>
+
+        <div class="profile-label">Name:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="Name" [(ngModel)]="companyAdminCopy.firstName" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.firstName}}</div>
+
+        <div class="profile-label">Surname:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="Surname" [(ngModel)]="companyAdminCopy.lastName" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.lastName}}</div>
+
+        <div class="profile-label">Password:</div>
+        <!-- <input class="profile-input" [class.cursor-initial]="canEdit" type="password" placeholder="Password" [(ngModel)]="companyAdminCopy.password" (input)="validate()"/> -->
+        <div class="profile-input-error">{{errors.password}}</div>
+        <div class="profile-edit-button" (click)="changePassword()">
+            <div class="profile-button-text">Change password</div>
+        </div>
+
+        <!-- <div class="profile-label" *ngIf="canEdit">Confirm password:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="password" placeholder="Confirm password" *ngIf="canEdit" [(ngModel)]="companyAdminCopy.passwordConfirmation" (input)="validate()"/>
+        <div class="profile-input-error" *ngIf="canEdit">{{errors.passwordConfirmation}}</div> -->
+
+        <div class="profile-label">Country:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="Country" [(ngModel)]="companyAdminCopy.country" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.country}}</div>
+
+        <div class="profile-label">City:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="City" [(ngModel)]="companyAdminCopy.city" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.city}}</div>
+
+        <div class="profile-label">Phone number:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="Phone Number" [(ngModel)]="companyAdminCopy.phoneNumber" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.phoneNumber}}</div>
+
+        <div class="profile-label">Workplace:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="Workplace" [(ngModel)]="companyAdminCopy.workplace" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.workplace}}</div>
+
+        <div class="profile-label">Company name:</div>
+        <input class="profile-input" [class.cursor-initial]="canEdit" type="text" placeholder="Company name" [(ngModel)]="companyAdminCopy.companyName" (input)="validate()"/>
+        <div class="profile-input-error">{{errors.companyName}}</div>
+
+        <div class="profile-edit-button" *ngIf="!canEdit" (click)="startEditing()">
+            <div class="profile-button-text">Edit</div>
+        </div>
+
+        <div class="profile-save-cancel" *ngIf="canEdit">
+            <div class="profile-save-button" (click)="saveChanges()">
+                <div class="profile-button-text">Save</div>
+            </div>
+            <div class="profile-cancel-button" (click)="endEditing()">
+                <div class="profile-cancel-button-text">Cancel</div>
+            </div>
+        </div>
+    </div>
+</div>

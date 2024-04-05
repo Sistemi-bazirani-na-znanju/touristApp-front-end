@@ -1,0 +1,51 @@
+<div class="registration-container">
+    <h1>COMPANY ADMINISTRATOR REGISTRATION</h1>
+</div>
+<div class="registration-container">
+    <form [formGroup]="registrationCompanyAdministratorForm" (ngSubmit)="registerCompanyAdministrator()" class="registration-form">
+      <div class="form-group">
+        <label for="firstName">Name</label>
+        <input id="firstName" formControlName="firstName" type="text" class="form-control" />
+        <div *ngIf="registrationCompanyAdministratorForm.controls.firstName.invalid && registrationCompanyAdministratorForm.controls.firstName.touched" class="error-message">Name is required</div>
+  
+        <label for="lastName">Last Name</label>
+        <input id="lastName" formControlName="lastName" type="text" class="form-control" />
+        <div *ngIf="registrationCompanyAdministratorForm.controls.lastName.invalid && registrationCompanyAdministratorForm.controls.lastName.touched" class="error-message">Surname is required</div>
+  
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" class="form-control" />
+        <div *ngIf="registrationCompanyAdministratorForm.controls.email.invalid && registrationCompanyAdministratorForm.controls.email.touched" class="error-message">Invalid email format or you already have an account</div>
+  
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" class="form-control" />
+        <div *ngIf="registrationCompanyAdministratorForm.controls.password.invalid && registrationCompanyAdministratorForm.controls.password.touched" class="error-message">Password is required</div>
+  
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control" />
+        <div *ngIf="registrationCompanyAdministratorForm.hasError('passwordMismatch')" class="error-message">Passwords do not match</div>
+  
+        <label for="countryAdministrator">Country</label>
+        <input id="countryAdministrator" formControlName="countryAdministrator" type="text" class="form-control" />
+        <div *ngIf="registrationCompanyAdministratorForm.controls.countryAdministrator.invalid && registrationCompanyAdministratorForm.controls.countryAdministrator.touched" class="error-message">Country is required</div>
+  
+        <label for="cityAdministrator">City</label>
+        <input id="cityAdministrator" formControlName="cityAdministrator" type="text" class="form-control" />
+        <div *ngIf="registrationCompanyAdministratorForm.controls.cityAdministrator.invalid && registrationCompanyAdministratorForm.controls.cityAdministrator.touched" class="error-message">City is required</div>
+  
+        <label for="phoneNumber">Phone Number</label>
+        <input id="phoneNumber" formControlName="phoneNumber" type="tel" class="form-control" />
+        <div *ngIf="registrationCompanyAdministratorForm.controls.phoneNumber.invalid && registrationCompanyAdministratorForm.controls.phoneNumber.touched" class="error-message">Invalid phone number format (+3816********)</div>
+  
+        <label for="workplace">Workplace</label>
+        <input id="workplace" formControlName="workplace" type="text" class="form-control" />
+        <div *ngIf="registrationCompanyAdministratorForm.controls.workplace.invalid && registrationCompanyAdministratorForm.controls.workplace.touched" class="error-message">Workplace is required</div>
+  
+        <label for="companyName">Company Name</label>
+        <input id="companyName" formControlName="companyName" type="text" class="form-control" />
+        <div *ngIf="registrationCompanyAdministratorForm.controls.companyName.invalid && registrationCompanyAdministratorForm.controls.companyName.touched" class="error-message">Company name is required</div>
+      </div>
+      <div>
+        <button type="submit" class="submit-button">REGISTER</button>
+      </div>
+    </form>
+</div>

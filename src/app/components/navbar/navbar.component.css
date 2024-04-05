@@ -1,0 +1,69 @@
+.app-name-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 auto;
+  padding-left: 90px;
+}
+
+.toolbar {
+  background-color: rgb(107, 22, 22);
+  padding: 15px;
+  display: flex;
+  justify-content: center; /* Center all items in the toolbar */
+}
+
+.buttons {
+  width: auto;
+  display: flex;
+  margin-left: auto;
+}
+
+.nav-button {
+  cursor: pointer;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+  font-size: 20px;
+  display: flex;
+}
+
+.app-name {
+  display: flex;
+  font-size: 24px;
+  color: white;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.app-icon {
+  width: 40px;
+  display: flex;
+}
+
+/* Left Section Styles */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  font-weight: 350;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  font-weight: 350;
+}
+
+.menuButton {
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  font-weight: 350;
+}

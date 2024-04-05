@@ -1,0 +1,60 @@
+.appointments-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+  }
+  
+  .appointment-card {
+    border: 1px solid rgba(107, 22, 22, 1);
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 80vw;
+  }
+  
+  h2 {
+    color: rgba(107, 22, 22, 1);
+    font-size: 1.5rem;
+  }
+  p{
+    font-size: 1rem;
+  }
+  .profile-edit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(107, 22, 22, 1);
+    border: rgba(107, 22, 22, 1) 1px solid;
+    border-radius: 0.3125rem;
+    height: 2.5rem;
+    transition: background-color 0.15s;
+    cursor: pointer;
+    width: 30%;
+    color: white;
+    margin-right: 30vw;
+    margin-left: 30vw;
+}
+
+.profile-edit-button:hover {
+    background-color: rgba(107, 22, 22, 0.9);
+}
+
+.sort {
+  margin-bottom: 1rem;
+}
+
+.options {
+  margin-left: 1rem;
+}
+
+.card-top{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-left {
+  
+}

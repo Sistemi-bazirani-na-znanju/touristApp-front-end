@@ -1,0 +1,138 @@
+<div class="toolbar">
+  <div class="navbar-left">
+    <button class="menuButton mat-button" [matMenuTriggerFor]="menu">
+      Menu
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['home']">Home</button>
+      
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_SYSTEMADMIN')"
+        [routerLink]="['registerCompany']"
+      >
+        Register Company (system admin)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_SYSTEMADMIN')"
+        [routerLink]="['deliveries']"
+      >
+        Manage deliveries (system admin)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.email === ''"
+        [routerLink]="['unregisteredUserEquipment']"
+      >
+        Equipment (uregistered user)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.email === ''"
+        [routerLink]="['unregisteredUserCompanies']"
+      >
+        Companies (uregistered user)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_USER')"
+        [routerLink]="['company-search']"
+      >
+        Company search (registered user)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_USER')"
+        [routerLink]="['profile']"
+      >
+        Profile (registered user)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_USER')"
+        [routerLink]="['equipment-search']"
+      >
+        Equipment search (registered user)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
+        [routerLink]="['company-admin-profile']"
+      >
+        Profile (company admin)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
+        [routerLink]="['company-profile']"
+      >
+        Company profile
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
+        [routerLink]="['equipment-search-company-administrator']"
+      >
+        Equipment search (company administrator)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
+        [routerLink]="['reservation-management']"
+      >
+        Reservation management (company administrator)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
+        [routerLink]="['reserved-users']"
+      >
+        Users that reserved (company administrator)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
+        [routerLink]="['reservation-takeover-qr']"
+      >
+      
+        Reservation Takeover QR (company administrator)
+      </button>
+      <button
+        mat-menu-item
+        *ngIf="user && user.roles.includes('ROLE_SYSTEMADMIN')"
+        [routerLink]="['register-system-administrator']"
+      >
+      
+        Register System Administrator (system admin)
+      </button>
+    </mat-menu>
+  </div>
+  <div class="app-name-icon" [routerLink]="['']">
+    <img class="app-icon" src="../../../assets/icons/medicine-van.svg" />
+    <div class="app-name">Medspress</div>
+  </div>
+  <div class="navbar-right">
+    <div
+      class="nav-button"
+      *ngIf="user && user.email === ''"
+      [routerLink]="['login']"
+    >
+      Log In
+    </div>
+    <div
+      class="nav-button"
+      *ngIf="user && user.email !== ''"
+      (click)="onLogout()"
+    >
+      Log Out
+    </div>
+    <div
+      class="nav-button"
+      *ngIf="user && user.email === ''"
+      [routerLink]="['register']"
+    >
+      Register
+    </div>
+  </div>
+</div>

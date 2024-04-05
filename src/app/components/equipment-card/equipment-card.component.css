@@ -1,0 +1,80 @@
+.company-card {
+    display: flex;
+    height: 10rem;
+    width: calc(100% - 1px);
+    border-radius: 0.3125rem;
+    background-color: rgba(255, 255, 255, 1);
+    border: rgba(0, 0, 0, 1) 1px solid;
+    transition: background-color 0.15s;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: rgba(0, 255, 0, 0.3);
+}
+
+.out-of-stock {
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+.company-card:hover {
+    background-color: rgba(240, 240, 240, 1);
+}
+
+.selected:hover {
+    background-color: rgba(0, 255, 0, 0.5);
+}
+
+.out-of-stock:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.input {
+    height: 1.5rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding-inline: 0.5rem;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 1);
+    border: rgba(0, 0, 0, 1) 1px solid;
+    border-radius: 0.3125rem;
+    cursor: default;
+}
+
+
+.company-image {
+    height: 100%;
+    width: 10rem;
+    border-top-left-radius: 0.3125rem;
+    border-bottom-left-radius: 0.3125rem;
+}
+
+.company-content {
+    padding-block: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: 1rem;
+}
+
+.company-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 1rem;
+}
+
+.company-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 0.5rem;
+}
+
+
+.star {
+    color: rgba(255,255,0, 1);
+}
+
+.red {
+    color: red;
+}
+

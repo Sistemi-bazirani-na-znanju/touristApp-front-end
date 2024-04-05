@@ -1,0 +1,22 @@
+<div class="registration-container">
+    <h1>LOG IN</h1>
+  </div>
+ 
+  <div class="registration-container">  
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="registration-form"> 
+      <p class="profile-input-error" *ngIf="!isValid">{{notification}}</p>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" class="form-control" />
+        <div *ngIf="email.invalid && email.touched" class="error-message">Invalid email format or you already have an account</div>
+  
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" class="form-control" />
+        <div *ngIf="password.invalid && password.touched" class="error-message">Password is required</div>
+  
+        <button type="submit" class="submit-button">LOG IN</button>
+        <p>Don't have an account yet?<a href="/register">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+  

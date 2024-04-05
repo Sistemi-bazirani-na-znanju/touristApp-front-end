@@ -1,0 +1,35 @@
+<div class="login-modal" (click)="onClose()">
+    <div class="login" (click)="$event.stopPropagation()">
+        <div class="login-head">
+            <fa-icon class="login-x" [icon]="faXmark" (click)="onClose()"/>
+            <div class="login-title">Appointments</div>
+        </div>
+        <div class="button margin-top" *ngIf="!extraordinary" (click)="toggleExtraordinary()">
+            <div class="button-text">Make an extraordinary appointment</div>
+        </div>
+        <div class="button margin-top" *ngIf="extraordinary" (click)="toggleExtraordinary()">
+            <div class="button-text">Pick an existing appointment</div>
+        </div>
+        <div class="label" *ngIf="!extraordinary">Pick an appointment:</div>
+        <div class="appointments-list" *ngIf="!extraordinary">
+            <div class="appointment" [class.selected]="isSelected(a.id)" *ngFor="let a of freeAppointments" (click)="selectAppointment(a.id)">
+                <div class="appointment-text">{{a.startDateTime}} ({{a.duration}} min.)</div>
+            </div>
+        </div>
+
+        <div class="label" *ngIf="extraordinary">Date:</div>
+        <input class="input" type="date" [min]="minDate" [(ngModel)]="date" (input)="findEmptySlots()" *ngIf="extraordinary"/>
+        <div class="label" *ngIf="extraordinary">Length (min.):</div>
+        <input class="input" type="number" min="1" max="60" [(ngModel)]="duration" (input)="findEmptySlots()" *ngIf="extraordinary"/>
+        <div class="label" *ngIf="extraordinary">Pick a time:</div>
+        <div class="appointments-list" *ngIf="extraordinary">
+            <div class="appointment" [class.selected]="time == t" *ngFor="let t of times" (click)="selectTime(t)">
+                <div class="appointment-text">{{t}} ({{duration}} min.)</div>
+            </div>
+        </div>
+
+        <div class="button" (click)="onMakeAReservation()" *ngIf="isReservationValid()">
+            <div class="button-text">Make a reservation</div>
+        </div>
+    </div>
+</div>

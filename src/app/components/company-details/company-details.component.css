@@ -1,0 +1,107 @@
+.company-card {
+    display: flex;
+    height: 10rem;
+    width: calc(100% - 1px);
+    border-radius: 0.3125rem;
+    background-color: rgba(255, 255, 255, 1);
+    border: rgba(0, 0, 0, 1) 1px solid;
+    transition: background-color 0.15s;
+    cursor: pointer;
+}
+
+.company-image {
+    height: 100%;
+    width: 10rem;
+    border-top-left-radius: 0.3125rem;
+    border-bottom-left-radius: 0.3125rem;
+}
+
+.company-content {
+    padding-block: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: 1rem;
+}
+
+.company-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 1rem;
+}
+
+.company-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 0.5rem;
+}
+
+
+.star {
+    color: rgba(255,255,0, 1);
+}
+
+.red {
+    color: red;
+}
+
+.button {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(107, 22, 22, 1);
+    border: rgba(107, 22, 22, 1) 1px solid;
+    height: 2.5rem;
+    transition: background-color 0.15s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(107, 22, 22, 0.9);
+}
+
+.button-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+}
+
+.margin-bottom {
+    margin-bottom: 1rem;
+    padding: 20px;
+}
+
+.margin-bottom-eq{
+    padding: 10px;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 50vw;
+    padding: 20px;
+}
+
+.search-container input {
+    flex: 1;
+    height: 2rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
+}
+
+.search-container button {
+    height: 2rem;
+    background-color: rgba(107, 22, 22, 1);
+    border: rgba(107, 22, 22, 1) 1px solid;
+    color: #fff;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.search-container button:hover {
+    background-color: rgba(107, 22, 22, 0.9);
+}

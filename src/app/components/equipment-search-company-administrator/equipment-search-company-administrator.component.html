@@ -1,0 +1,153 @@
+<div class="company-search">
+    <div class="company-search-header">
+        <div class="company-search-header-title">Equipment search</div>
+        <div class="company-search-header-paragraph">
+            Unlocking a comprehensive search and filtering capability, our platform enables seamless exploration of an extensive 
+            array of top-notch medical equipment. Tailored for clinics seeking reliability and excellence, 
+            it presents a curated list of equipment, meticulously aligned with the unique requirements of your 
+            facility. Whether your quest involves state-of-the-art technology, budget-friendly options, or 
+            specialized equipment, our platform streamlines the journey, ensuring direct connections with 
+            the industry's most reputable suppliers. Discover the ease of finding precisely what your clinic 
+            needs within the realm of medical equipment.
+        </div>
+    </div>
+    <div class="company-search-body">
+        <div class="company-search-filters">
+            <div class="company-search-button" (click)="search()">
+                <div class="company-search-button-text">Search</div>
+            </div>
+            <div class="company-search-filters-head">
+                <div class="company-search-filters-head-title">
+                    <fa-icon class="company-filters-head-icon" [icon]="faFilter" />
+                    <div class="company-filters-head-text">Filters ({{countFilters()}})</div>
+                </div>
+                <div class="company-filters-view" *ngIf="searchFilter.name != ''">
+                    <fa-icon class="company-filter-x" [icon]="faXmark" (click)="searchFilter.name = ''"/>
+                    <div class="company-filter-view-text">Name: "{{searchFilter.name}}"</div>
+                </div>
+                <div class="company-filters-view" *ngIf="searchFilter.description != ''">
+                    <fa-icon class="company-filter-x" [icon]="faXmark "(click)="searchFilter.description = ''"/>
+                    <div class="company-filter-view-text">Description: "{{searchFilter.description}}"</div>
+                </div>
+                <div class="company-filters-view" *ngIf="searchFilter.type != ''">
+                    <fa-icon class="company-filter-x" [icon]="faXmark" (click)="searchFilter.type = ''"/>
+                    <div class="company-filter-view-text">Type: "{{searchFilter.type}}"</div>
+                </div>
+                <div class="company-filters-view" *ngIf="searchFilter.minRating > 0">
+                    <fa-icon class="company-filter-x" [icon]="faXmark" (click)="searchFilter.minRating = 0"/>
+                    <div class="company-filter-view-text">Min. rating: {{searchFilter.minRating}}</div>
+                </div>
+                <div class="company-filters-view" *ngIf="5 > searchFilter.maxRating">
+                    <fa-icon class="company-filter-x" [icon]="faXmark" (click)="searchFilter.maxRating = 5"/>
+                    <div class="company-filter-view-text">Max. rating: {{searchFilter.maxRating}}</div>
+                </div>
+            </div>
+            <div class="company-seach-filter-section no-bottom-border rounded-top-corners">
+                <div class="company-seach-filter-section-title" >
+                    <div class="company-seach-filter-section-title-text">Name</div>
+                    <fa-icon class="company-seach-filter-section-title-arrow" [class.spin-arrow]="!dropped['nameDropped']" [icon]="faChevronDown" (click)="toggle('nameDropped')"/>
+                </div>
+                <div class="company-seach-filter-section-body" [class.company-seach-filter-section-body-dropped]="dropped['nameDropped']">
+                    <input class="company-filter-input" type="text" placeholder="Name"  [(ngModel)]="searchFilter.name"/>
+                </div>
+            </div>
+            <div class="company-seach-filter-section no-bottom-border">
+                <div class="company-seach-filter-section-title" >
+                    <div class="company-seach-filter-section-title-text">Description</div>
+                    <fa-icon class="company-seach-filter-section-title-arrow" [class.spin-arrow]="!dropped['descriptionDropped']" [icon]="faChevronDown" (click)="toggle('descriptionDropped')"/>
+                </div>
+                <div class="company-seach-filter-section-body" [class.company-seach-filter-section-body-dropped]="dropped['descriptionDropped']">
+                    <input class="company-filter-input" type="text" placeholder="Description" [(ngModel)]="searchFilter.description"/>
+                </div>
+            </div>
+            <div class="company-seach-filter-section no-bottom-border">
+                <div class="company-seach-filter-section-title" >
+                    <div class="company-seach-filter-section-title-text">Type</div>
+                    <fa-icon class="company-seach-filter-section-title-arrow" [class.spin-arrow]="!dropped['typeDropped']" [icon]="faChevronDown" (click)="toggle('typeDropped')"/>
+                </div>
+                <div class="company-seach-filter-section-body" [class.company-seach-filter-section-body-dropped]="dropped['descriptionDropped']">
+                    <input class="company-filter-input" type="text" placeholder="Type" [(ngModel)]="searchFilter.type"/>
+                </div>
+            </div>
+            <div class="company-seach-filter-section rounded-bottom-corners">
+                <div class="company-seach-filter-section-title" >
+                    <div class="company-seach-filter-section-title-text">Rating</div>
+                    <fa-icon class="company-seach-filter-section-title-arrow" [class.spin-arrow]="!dropped['ratingDropped']" [icon]="faChevronDown" (click)="toggle('ratingDropped')"/>
+                </div>
+                <div class="company-seach-filter-section-body" [class.company-seach-filter-section-body-dropped]="dropped['ratingDropped']">
+                    <div class="filter-rating">
+                        <div class="filter-rating-text">Min: {{searchFilter.minRating}}</div>
+                        <input class="filter-rating-slider" type="range" min="0" max="4.9" step="0.1" [(ngModel)]="searchFilter.minRating" (input)="validateMinRating()"/>
+                    </div>
+                    <div class="company-filter-margin"></div>
+                    <div class="filter-rating">
+                        <div class="filter-rating-text">Max: {{searchFilter.maxRating}}</div>
+                        <input class="filter-rating-slider" type="range" min="0.1" max="5" step="0.1" [(ngModel)]="searchFilter.maxRating" (input)="validateMaxRating()"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="company-search-results">
+            <div class="company-search-results-header">
+                <div class="company-search-results-count">Equipment ({{totalCount}})</div>
+                <div class="company-sort-select">
+                    <div class="company-sort-view">
+                        <fa-icon class="company-sort-way" [icon]="displayedSortIcon" *ngIf="displayedSortIcon != ''"/>
+                        <div class="company-sort-current">{{displayedSortCriteria}}</div>
+                        <fa-icon class="company-sort-arrow"[icon]="faChevronDown"/>
+                    </div>
+                    <div class="company-sort-options">
+                        <div class="company-sort-option" (click)="changeSortCriteria('None', '-', 'none')">
+                            <div class="company-sort-option-current">-</div>
+                        </div>
+                        <div class="company-sort-option" (click)="changeSortCriteria('Name(ascending)', 'Name', 'ascending')">
+                            <fa-icon class="company-sort-option-way" [icon]="faArrowUpWideShort" />
+                            <div class="company-sort-option-current">Name</div>
+                        </div>
+                        <div class="company-sort-option" (click)="changeSortCriteria('Name(descending)', 'Name', 'descending')">
+                            <fa-icon class="company-sort-option-way" [icon]="faArrowDownWideShort" />
+                            <div class="company-sort-option-current">Name</div>
+                        </div>
+                        <div class="company-sort-option" (click)="changeSortCriteria('Rating(ascending)', 'Rating', 'ascending')">
+                            <fa-icon class="company-sort-option-way" [icon]="faArrowUpWideShort" />
+                            <div class="company-sort-option-current">Rating</div>
+                        </div>
+                        <div class="company-sort-option" (click)="changeSortCriteria('Rating(descending)', 'Rating', 'descending')">
+                            <fa-icon class="company-sort-option-way" [icon]="faArrowDownWideShort" />
+                            <div class="company-sort-option-current">Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="company-search-result-companies">
+                <div class="company-card" *ngFor="let equipment of equipment">
+                    <img class="company-image" src="https://pactandpartners.com/wp-content/uploads/2020/02/Medical-Devices-scaled.jpeg"/>
+                    <div class="company-content">
+                        <div class="company-title">{{equipment.name}}</div>
+                        <div class="company-label">
+                            <fa-icon class="star" [icon]="faStar" />
+                            {{equipment.averageRating}}
+                        </div>
+                        <div class="company-label">
+                            <fa-icon [icon]="faLocationDot" />
+                            Description: {{equipment.description}}
+                        </div>
+                        <div class="company-label">
+                            <fa-icon [icon]="faLocationDot" />
+                            Type: {{equipment.type}}
+                        </div>
+                        <div class="company-search-button" [routerLink]="['/equipment-companies-overview', equipment.id]">
+                            <div class="company-search-button-text">See Companies with Equipment</div>
+                        </div>
+                </div>
+            </div>
+            <div class="company-search-pages">
+                <div class="company-search-page" [class.company-search-page-highlighted]="page === currentPage || page === '&lt;' || page === '>'" [class.no-border]="page === '...'" *ngFor="let page of pages" (click)="switchPage(page)">
+                    <fa-icon class="company-search-page-arrow company-search-page-text-highlighted" [icon]="faChevronLeft" *ngIf="page === '&lt;'"/>
+                    <fa-icon class="company-search-page-arrow company-search-page-text-highlighted" [icon]="faChevronRight" *ngIf="page === '>'"/>
+                    <div class="company-search-page-text" [class.company-search-page-text-highlighted]="page === currentPage" *ngIf="page !== '&lt;' && page !== '>'">{{page}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

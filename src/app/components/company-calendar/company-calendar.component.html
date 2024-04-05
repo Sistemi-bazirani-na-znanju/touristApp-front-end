@@ -1,0 +1,17 @@
+<div class="registration-container">
+    <h1>COMPANY CALENDAR</h1>
+</div>
+<div class="registration-container">
+    <div class="calendar-wrapper">
+        <div>
+            <!-- <button class="submit-button" (click)="switchCalendarTabOne">MONTH</button>
+            <button class="submit-button" (click)="switchCalendarTabTwo">DAY</button>
+            <button class="submit-button" (click)="switchCalendarTabThree">YEAR</button> -->
+        </div>
+        <full-calendar *ngIf="calendarTab === 1" [options]="calendarOptionsMonth"></full-calendar>
+        <br>
+        <full-calendar *ngIf="calendarTab === 1" [options]="calendarOptionsDay"></full-calendar>
+        <br>
+        <full-calendar *ngIf="calendarTab === 1" [options]="calendarOptionsYear"></full-calendar>
+    </div>
+</div>

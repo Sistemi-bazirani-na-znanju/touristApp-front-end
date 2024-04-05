@@ -1,0 +1,53 @@
+ .container {
+    margin: 0;
+    padding: 0;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .center-container {
+    text-align: center;
+    margin-top: 120px;
+  }
+  
+  .homebutton {
+    width: 20vw; /* Increase the width to make the button wider */
+    padding: 15px 10px; /* Adjust padding for more space around text */
+    font-size: 1.2em; /* Increase font size */
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .retrybutton{
+    width: 15vw; /* Adjust the width to make the button smaller */
+    padding: 10px 5px; /* Adjust the padding to make the button smaller */
+    font-size: 15px; /* Adjust the font size to make the text smaller */
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    cursor: pointer;
+    margin-top: 20px; /* Adjust the margin for spacing */
+    margin-bottom: 20px;
+  }
+
+  p{
+    font-size: 20px;
+    margin: 30px
+  }
+
+  .smaller-text{
+    font-size: 25px;
+    margin: 30px;
+  }
+  
+  h1{
+    font-size: 40px;
+    margin: 40px;
+    color:  rgb(107, 22, 22);;
+  }
