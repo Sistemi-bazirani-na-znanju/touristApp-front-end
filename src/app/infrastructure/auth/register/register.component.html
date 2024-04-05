@@ -25,25 +25,6 @@
       <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control" />
       <div *ngIf="registrationForm.hasError('passwordMismatch')" class="error-message">Passwords do not match</div>
 
-      <label for="country">Country</label>
-      <input id="country" formControlName="country" type="text" class="form-control" />
-      <div *ngIf="country.invalid && country.touched" class="error-message">Country is required</div>
-
-      <label for="city">City</label>
-      <input id="city" formControlName="city" type="text" class="form-control" />
-      <div *ngIf="city.invalid && city.touched" class="error-message">City is required</div>
-
-      <label for="phoneNumber">Phone Number</label>
-      <input id="phoneNumber" formControlName="phoneNumber" type="tel" class="form-control" />
-      <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="error-message">Invalid phone number format (+3816********)</div>
-
-      <label for="workplace">Workplace</label>
-      <input id="workplace" formControlName="workplace" type="text" class="form-control" />
-      <div *ngIf="workplace.invalid && workplace.touched" class="error-message">Workplace is required</div>
-
-      <label for="companyName">Company Name</label>
-      <input id="companyName" formControlName="companyName" type="text" class="form-control" />
-      <div *ngIf="companyName.invalid && companyName.touched" class="error-message">Company name is required</div>
 
       <button type="submit" [disabled]="!registrationForm.valid" class="submit-button">REGISTER</button>
     </div>

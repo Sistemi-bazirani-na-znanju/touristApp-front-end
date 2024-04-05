@@ -4,12 +4,6 @@ export class SystemAdmin {
     password: string;
     firstName: string;
     lastName: string;
-    city: string;
-    country: string;
-    phoneNumber: string;
-    firstLogged: boolean;
-    lastPasswordResetDate: Date;
-    active: boolean;
 
     constructor() {
       this.id = -1;
@@ -17,11 +11,5 @@ export class SystemAdmin {
       this.password = "";
       this.firstName = "";
       this.lastName = "";
-      this.city = "";
-      this.country = "";
-      this.phoneNumber = "";
-      this.firstLogged = true;
-      this.lastPasswordResetDate = new Date();
-      this.active = true;
     }
   }

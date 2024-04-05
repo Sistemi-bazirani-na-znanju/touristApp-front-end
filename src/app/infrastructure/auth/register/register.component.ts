@@ -23,40 +23,18 @@ export class RegisterComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     confirmPassword: new FormControl('', [Validators.required]),
-    country: new FormControl('', [Validators.required]),
-    city: new FormControl('', [Validators.required]),
-    phoneNumber: new FormControl('', [Validators.required, Validators.pattern(/^\+\d{12}$/)]),
-    workplace: new FormControl('', [Validators.required]),
-    companyName: new FormControl('', [Validators.required]),
   }, { validators: this.passwordMatchValidator });
 
   get confirmPassword(): FormControl {
     return this.registrationForm.get('confirmPassword') as FormControl;
   }
 
-  get phoneNumber(): FormControl {
-    return this.registrationForm.get('phoneNumber') as FormControl;
-  }
 
   get email(): FormControl {
     return this.registrationForm.get('email') as FormControl;
   }
 
-  get country(): FormControl {
-    return this.registrationForm.get('country') as FormControl;
-  }
   
-  get city(): FormControl {
-    return this.registrationForm.get('city') as FormControl;
-  }
-  
-  get workplace(): FormControl {
-    return this.registrationForm.get('workplace') as FormControl;
-  }
-  
-  get companyName(): FormControl {
-    return this.registrationForm.get('companyName') as FormControl;
-  }
   get password(): FormControl {
     return this.registrationForm.get('password') as FormControl;
   }
@@ -85,14 +63,7 @@ export class RegisterComponent {
       firstName: this.registrationForm.value.firstName || "",
       lastName: this.registrationForm.value.lastName || "",
       email: this.registrationForm.value.email || "",
-      password: this.registrationForm.value.password || "",
-      city: this.registrationForm.value.city || "", 
-      country: this.registrationForm.value.country || "",
-      phoneNumber: this.registrationForm.value.phoneNumber || "",
-      workplace: this.registrationForm.value.workplace || "",
-      companyName: this.registrationForm.value.companyName || "",
-      longitude: Math.random() * (19.89 - 19.79) + 19.79,
-      latitude: Math.random() * (45.32 - 45.22) + 45.22
+      password: this.registrationForm.value.password || ""
     };
     
     console.log("Registration Data:", registration);

@@ -8,7 +8,6 @@ import { AuthModule } from './infrastructure/auth/auth.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtModule, JwtInterceptor } from '@auth0/angular-jwt';
 import { AuthService } from './infrastructure/auth/auth.service';
-import { CompanyModule } from './company/company.module';
 import { UregisteredUserModule } from './unregistered-user/uregistered-user/uregistered-user.module';
 import { ApiService } from './infrastructure/auth';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -21,7 +20,6 @@ import { QRCodeModule } from 'angularx-qrcode';
     AppRoutingModule,
     ComponentsModule,
     AuthModule,
-    CompanyModule,
     HttpClientModule,
     BrowserAnimationsModule,
     UregisteredUserModule,

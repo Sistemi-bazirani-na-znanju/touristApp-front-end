@@ -7,7 +7,7 @@ import { RegisteredUser } from '../../infrastructure/rest/model/registered-user.
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../infrastructure/auth';
 import { MatDialog } from '@angular/material/dialog';
-import { ChangeCopmanyAdminPasswordComponent } from '../change-company-admin-password/change-company-admin-password.component';
+
 
 @Component({
   selector: 'pd-registered-user-profile',
@@ -31,11 +31,6 @@ export class RegisteredUserProfileComponent {
       passwordConfirmation: "",
       firstName: "",
       lastName: "",
-      city: "",
-      country: "",
-      phoneNumber: "",
-      workplace: "",
-      companyName: ""
     };
 
     this.errors = {
@@ -43,11 +38,6 @@ export class RegisteredUserProfileComponent {
       passwordConfirmation: "",
       firstName: "",
       lastName: "",
-      city: "",
-      country: "",
-      phoneNumber: "",
-      workplace: "",
-      companyName: ""
     };
   }
 
@@ -77,8 +67,8 @@ export class RegisteredUserProfileComponent {
           this.user = result;
           this.makeUserCopy();
         },
-        error: (errData) => {
-          console.log(errData);
+        error: () => {
+          console.log("Error updating user");
         }
       })
       this.endEditing();
@@ -186,16 +176,5 @@ export class RegisteredUserProfileComponent {
     this.errors.companyName = "";
   };
 
-  changePassword() {
-    let user = {
-      email: this.user.email,
-      password: this.user.password
-    }
-    this.dialogRef.open(ChangeCopmanyAdminPasswordComponent, {
-      width: '400px', // Set the width as per your requirement
-      disableClose: true, // Prevent closing the dialog by clicking outside or pressing Esc
-      autoFocus: true, // Autofocus on the first focusable element in the dialog
-      data: { user: user }
-    });
-  }
+
 }

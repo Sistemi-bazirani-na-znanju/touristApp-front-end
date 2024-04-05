@@ -8,95 +8,10 @@
       
       <button
         mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_SYSTEMADMIN')"
-        [routerLink]="['registerCompany']"
-      >
-        Register Company (system admin)
-      </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_SYSTEMADMIN')"
-        [routerLink]="['deliveries']"
-      >
-        Manage deliveries (system admin)
-      </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.email === ''"
-        [routerLink]="['unregisteredUserEquipment']"
-      >
-        Equipment (uregistered user)
-      </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.email === ''"
-        [routerLink]="['unregisteredUserCompanies']"
-      >
-        Companies (uregistered user)
-      </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_USER')"
-        [routerLink]="['company-search']"
-      >
-        Company search (registered user)
-      </button>
-      <button
-        mat-menu-item
         *ngIf="user && user.roles.includes('ROLE_USER')"
         [routerLink]="['profile']"
       >
         Profile (registered user)
-      </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_USER')"
-        [routerLink]="['equipment-search']"
-      >
-        Equipment search (registered user)
-      </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
-        [routerLink]="['company-admin-profile']"
-      >
-        Profile (company admin)
-      </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
-        [routerLink]="['company-profile']"
-      >
-        Company profile
-      </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
-        [routerLink]="['equipment-search-company-administrator']"
-      >
-        Equipment search (company administrator)
-      </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
-        [routerLink]="['reservation-management']"
-      >
-        Reservation management (company administrator)
-      </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
-        [routerLink]="['reserved-users']"
-      >
-        Users that reserved (company administrator)
-      </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_COMPANYADMIN')"
-        [routerLink]="['reservation-takeover-qr']"
-      >
-      
-        Reservation Takeover QR (company administrator)
       </button>
       <button
         mat-menu-item

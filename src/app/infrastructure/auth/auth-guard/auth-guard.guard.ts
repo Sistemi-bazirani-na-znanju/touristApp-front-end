@@ -26,30 +26,9 @@ export class RoleGuard implements CanActivate {
     }
 
 
-    if (role.includes('ROLE_SYSTEMADMIN')) {
-      const firstLogged = await this.isSystemAdminFirstLogged(this.aService.user$.value.email).toPromise();
-      if (firstLogged) {
-        this.router.navigate(['/change-password']);
-        return false;
-      }
-    }
-
 
     return true;
   }
 
-  isSystemAdminFirstLogged(name: String) {
-    return this.systemAdminService.getByName(name).pipe(
-      map((systemAdmin: SystemAdmin) => {
-        if (systemAdmin && systemAdmin.firstLogged !== undefined) {
-          return systemAdmin.firstLogged;
-        }
-        return false;
-      }),
-      catchError((error) => {
-        console.error("Error occurred:", error);
-        return of(true); // or any default value in case of an error
-      })
-    );
-  }
+
 }
