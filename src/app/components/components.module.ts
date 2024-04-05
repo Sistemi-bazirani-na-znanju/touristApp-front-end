@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../infrastructure/material/material.module';
 import { RegisteredUserProfileComponent } from './registered-user-profile/registered-user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ArrangementComponent } from './arrangements/arrangements.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     NavbarComponent,
     RegisteredUserProfileComponent,
-
+    ArrangementComponent
   ],
   imports: [CommonModule, RouterModule,MaterialModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
   exports: [HomeComponent,
             LoginComponent,
             NavbarComponent,
-            RegisteredUserProfileComponent,],
+            RegisteredUserProfileComponent,
+            ArrangementComponent],
 })
 export class ComponentsModule {}
