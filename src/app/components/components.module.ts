@@ -10,6 +10,7 @@ import { RegisteredUserProfileComponent } from './registered-user-profile/regist
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArrangementComponent } from './arrangements/arrangements.component';
 import { ArragementReservationComponent } from './arrangement-reservation/arrangement-reservation.component';
+import { ArrangementCreationComponent } from './arrangement-creation/arrangement-creation.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ArragementReservationComponent } from './arrangement-reservation/arrang
     NavbarComponent,
     RegisteredUserProfileComponent,
     ArrangementComponent,
-    ArragementReservationComponent
+    ArragementReservationComponent,
+    ArrangementCreationComponent
   ],
   imports: [CommonModule, RouterModule,MaterialModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
   exports: [HomeComponent,
@@ -26,6 +28,7 @@ import { ArragementReservationComponent } from './arrangement-reservation/arrang
             NavbarComponent,
             RegisteredUserProfileComponent,
             ArrangementComponent,
-            ArragementReservationComponent],
+            ArragementReservationComponent,
+            ArrangementCreationComponent],
 })
 export class ComponentsModule {}

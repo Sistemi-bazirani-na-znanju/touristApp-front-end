@@ -12,6 +12,12 @@
     >
       Arrangements
     </button>
+    <button
+      mat-menu-item
+      [routerLink]="['arrangement-creation']"
+    >
+      Arrangement Creation
+    </button>
       <button
         mat-menu-item
         *ngIf="user && user.roles.includes('ROLE_USER')"

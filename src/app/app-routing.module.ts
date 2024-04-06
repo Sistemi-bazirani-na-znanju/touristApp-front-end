@@ -10,6 +10,7 @@ import { RegisteredUserProfileComponent } from './components/registered-user-pro
 import { RoleGuard } from './infrastructure/auth/auth-guard/auth-guard.guard';
 import { ArrangementComponent } from './components/arrangements/arrangements.component';
 import { ArragementReservationComponent } from './components/arrangement-reservation/arrangement-reservation.component';
+import { ArrangementCreationComponent } from './components/arrangement-creation/arrangement-creation.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'make-reservation/:id',
     component: ArragementReservationComponent
+  },
+  {
+    path: 'arrangement-creation',
+    component: ArrangementCreationComponent
   }
 ];
 
