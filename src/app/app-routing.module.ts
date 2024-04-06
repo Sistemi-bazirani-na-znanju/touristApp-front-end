@@ -8,6 +8,7 @@ import { RegistrationRequestComfirmationComponent } from './infrastructure/auth/
 import { RegistrationRequestCompleteComponent } from './infrastructure/auth/registration-request-complete/registration-request-complete.component';
 import { RegisteredUserProfileComponent } from './components/registered-user-profile/registered-user-profile.component';
 import { RoleGuard } from './infrastructure/auth/auth-guard/auth-guard.guard';
+import { ArrangementComponent } from './components/arrangements/arrangements.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
     //   expectedRole: 'ROLE_USER',
     // },
   },
+  {
+    path: 'arrangements',
+    component: ArrangementComponent
+  }
 ];
 
 @NgModule({
