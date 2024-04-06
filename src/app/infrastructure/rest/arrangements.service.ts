@@ -8,34 +8,34 @@ import { Arrangement } from './model/arrangement.model';
   providedIn: 'root',
 })
 export class ArrangementService {
-  basePath: string;
-  headers: HttpHeaders = new HttpHeaders({
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-  });
+    basePath: string;
+    headers: HttpHeaders = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    });
 
-  constructor(private http: HttpClient) {
-    this.basePath = environment.apiHost;
-  }
+    constructor(private http: HttpClient) {
+        this.basePath = environment.apiHost;
+    }
 
 
-  getAll(): Observable<Arrangement[]> {
-    const path = this.basePath + 'arrangements';
-    let result = this.http.get<Arrangement[]>(path, { headers: this.headers });
-    return result;
-  }
+    getAll(): Observable<Arrangement[]> {
+        const path = this.basePath + 'arrangements';
+        let result = this.http.get<Arrangement[]>(path, { headers: this.headers });
+        return result;
+    }
 
-  getById(id: number): Observable<Arrangement> {
-    const path = this.basePath + 'arrangements/' + id;
-    let result = this.http.get<Arrangement>(path, { headers: this.headers });
-    return result;
-  }
+    getById(id: number): Observable<Arrangement> {
+        const path = this.basePath + 'arrangements/' + id;
+        let result = this.http.get<Arrangement>(path, { headers: this.headers });
+        return result;
+    }
 
-  update(id: number, arrangement: any): Observable<Arrangement> {
-    const path = this.basePath + 'arrangements/' + id;
-    console.log(path);
-    return this.http.put<Arrangement>(path, arrangement, { headers: this.headers });
-  }
+    update(id: number, arrangement: any): Observable<Arrangement> {
+        const path = this.basePath + 'arrangements/' + id;
+        console.log(path);
+        return this.http.put<Arrangement>(path, arrangement, { headers: this.headers });
+    }
 
     create(arrangement: Arrangement): Observable<Arrangement> {
         const path = this.basePath + 'arrangements';

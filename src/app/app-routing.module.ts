@@ -9,6 +9,7 @@ import { RegistrationRequestCompleteComponent } from './infrastructure/auth/regi
 import { RegisteredUserProfileComponent } from './components/registered-user-profile/registered-user-profile.component';
 import { RoleGuard } from './infrastructure/auth/auth-guard/auth-guard.guard';
 import { ArrangementComponent } from './components/arrangements/arrangements.component';
+import { ArrangementCreationComponent } from './components/arrangement-creation/arrangement-creation.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'arrangements',
     component: ArrangementComponent
+  },
+  {
+    path: 'arrangement-creation',
+    component: ArrangementCreationComponent
   }
 ];
 

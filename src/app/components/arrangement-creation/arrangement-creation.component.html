@@ -1,0 +1,79 @@
+<div class="registration-container">
+    <h1>ARRANGEMENT CREATION</h1>
+  </div>
+  <div class="registration-container">
+    <form [formGroup]="arrangementCreationForm" (ngSubmit)="createArrangement()" class="registration-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" type="text" class="form-control" />
+        <div *ngIf="arrangementCreationForm.controls.name.invalid && arrangementCreationForm.controls.name.touched" class="error-message">Name is required</div>
+  
+        <label for="price">Price</label>
+        <input id="price" formControlName="price" type="text" class="form-control" />
+        <div *ngIf="arrangementCreationForm.controls.price.invalid && arrangementCreationForm.controls.price.touched" class="error-message">Price is required</div>
+  
+        <label for="type">Type</label>
+        <select id="type" formControlName="type" class="form-control">
+          <option value="INDIVIDUAL">Individual</option>
+          <option value="FAMILY">Family</option>
+          <option value="GROUP">Group</option>
+        </select>
+        <div *ngIf="arrangementCreationForm.controls.type.invalid && arrangementCreationForm.controls.type.touched" class="error-message">Type is required</div>
+      </div>
+
+      <div class="excursion-container">
+        <h1>ADD EXCURSION</h1>
+        <form [formGroup]="excursionCreationForm" (ngSubmit)="addExcursion()" class="excursion-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input id="name" formControlName="name" type="text" class="form-control" />
+              <div *ngIf="excursionCreationForm.controls.name.invalid && excursionCreationForm.controls.name.touched" class="error-message">Name is required</div>
+        
+              <label for="price">Price</label>
+              <input id="price" formControlName="price" type="text" class="form-control" />
+              <div *ngIf="excursionCreationForm.controls.price.invalid && excursionCreationForm.controls.price.touched" class="error-message">Price is required</div>
+        
+              <label for="type">Type</label>
+              <select id="type" formControlName="type" class="form-control">
+                <option value="HISTORICAL">Historical</option>
+                <option value="CULTURAL">Cultural</option>
+                <option value="GASTRONOMIC">Gastronomic</option>
+                <option value="SPORTS">Sports</option>
+                <option value="RELAXATION">Relaxation</option>
+                <option value="DIVING">Diving</option>
+                <option value="HIKING">Hiking</option>
+              </select>
+              
+              <div *ngIf="excursionCreationForm.controls.type.invalid && excursionCreationForm.controls.type.touched" class="error-message">Type is required</div>
+            </div>
+            <div>
+                <button type="submit" class="submit-button">ADD EXCURSION</button>
+            </div>    
+        </form>
+    </div>  
+
+        <div class="appointments-container">
+            <h1>Excursions in the Arrangement:</h1>
+            <div>
+                <div *ngFor="let excursion of excursions">
+                    <div  class="appointment-card">
+                    <div class="card-top">
+                        <div class="card-left">
+                        <p>Name: {{ excursion.name }}</p>
+                        <p>Type: {{ getExcursionTypeName(excursion.type) }}</p>
+                        <p>Price: {{ excursion.price }}$</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <h1 *ngIf="excursions.length === 0" class="error-message-creation">None</h1>
+        </div>
+
+      <div>
+        <p class="error-message-creation">{{ creationError }}</p>
+        <button type="submit" class="submit-button">CREATE ARRANGEMENT</button>
+      </div>
+    </form>
+  </div>
+  
