@@ -133,9 +133,7 @@ export class ArrangementCreationComponent {
             id: -1,
             name: this.excursionCreationForm.value.name || '',
             type: type,
-            price: price,
-            numberOfPeopleRegistered: 0,
-            totalPrice: 0            
+            price: price           
         };
 
         console.log('Excursion:')
