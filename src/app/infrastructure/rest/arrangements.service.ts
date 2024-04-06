@@ -25,9 +25,9 @@ export class ArrangementService {
     return result;
   }
 
-  getById(id: number): Observable<Arrangement> {
+  getById(id: number): Observable<any> {
     const path = this.basePath + 'arrangements/' + id;
-    let result = this.http.get<Arrangement>(path, { headers: this.headers });
+    let result = this.http.get<any>(path, { headers: this.headers });
     return result;
   }
 

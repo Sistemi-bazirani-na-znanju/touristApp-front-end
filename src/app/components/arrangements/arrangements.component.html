@@ -21,7 +21,7 @@
             <p>Average Rating: <strong>{{ arrangement.averageRating }}</strong></p>
           </div>
         </div>
-        <button>VIEW MORE</button>
+        <button [routerLink]="['/make-reservation/', arrangement.id]">MAKE RESERVATION</button>
       </div>
     </div>
   </div>

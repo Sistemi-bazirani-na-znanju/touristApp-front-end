@@ -12,10 +12,9 @@ import { UregisteredUserModule } from './unregistered-user/uregistered-user/ureg
 import { ApiService } from './infrastructure/auth';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { QRCodeModule } from 'angularx-qrcode';
-import { ArragementReservationComponent } from './arragement-reservation/arragement-reservation.component';
 
 @NgModule({
-  declarations: [AppComponent, ArragementReservationComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
