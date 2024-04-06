@@ -73,7 +73,7 @@ export class RegisterComponent {
       console.log("Uspesno popunjena forma");
       this.authService.register(registration).subscribe({
         next: () => {
-          this.router.navigate(['registrationConfirmation']);
+          this.router.navigate(['welcome']);
         },
         error: (error) => {
           if (error.status === 400) {

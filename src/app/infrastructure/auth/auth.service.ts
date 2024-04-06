@@ -34,6 +34,8 @@ export class AuthService {
   user$ = new BehaviorSubject<any>({
     id: 0,
     email: '',
+    firstName: '',
+    lastName: '',
     roles: []
   });
 
@@ -78,7 +80,7 @@ export class AuthService {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     });
-    return this.http.post<any>('http://localhost:8080/auth/login', login, { headers })
+    return this.http.post<any>('http://localhost:8080/api/auth/authenticate', login, { headers })
       .pipe(map((res) => {
         console.log(res);
         this.access_token = res.accessToken;
@@ -126,7 +128,7 @@ export class AuthService {
 
   register(registration: Registration): Observable<AuthenticationResponse> {
     return this.http
-      .post<AuthenticationResponse>(environment.apiHost + 'registration', registration)
+      .post<AuthenticationResponse>(environment.apiHost + 'auth/register', registration)
       .pipe(
         tap((authenticationResponse) => {
           this.tokenStorage.saveAccessToken(authenticationResponse.accessToken);
@@ -177,6 +179,8 @@ export class AuthService {
       id: +jwtHelperService.decodeToken(accessToken).id,
       email: jwtHelperService.decodeToken(accessToken).sub,
       roles: jwtHelperService.decodeToken(accessToken).roles,
+      firstName : jwtHelperService.decodeToken(accessToken).firstName,
+      lastName : jwtHelperService.decodeToken(accessToken).lastName,
     };
     console.log(user)
     this.user$.next(user);
