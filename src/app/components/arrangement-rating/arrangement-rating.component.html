@@ -14,7 +14,13 @@
         <div>
             <label class="profile-label">Rating 1-5:</label>
 
-            <input type="range" class="profile-input" formControlName="ratingValue" id="ratingValue" min="1" max="5" step="1">
+            <select class="profile-input" formControlName="ratingValue" id="ratingValue">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
             <div *ngIf="ratingCreationForm.controls.ratingValue.invalid && ratingCreationForm.controls.ratingValue.touched" class="error-message">Value is required</div>
 
         </div>

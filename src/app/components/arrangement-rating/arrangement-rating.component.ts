@@ -97,6 +97,7 @@ import { Rating } from '../../infrastructure/rest/model/rating.model';
                     this.arrangement = result;
                     this.ratings = result.ratings;
                     this.cdRef.detectChanges(); // Manually trigger change detection
+                    this.router.navigate(['/arrangements']);
                     },
                     error: () => {
                     console.log('Error updating arrangement');
