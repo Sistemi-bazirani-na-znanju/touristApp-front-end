@@ -10,6 +10,7 @@ import { RegisteredUserProfileComponent } from './registered-user-profile/regist
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArrangementComponent } from './arrangements/arrangements.component';
 import { ArrangementCreationComponent } from './arrangement-creation/arrangement-creation.component';
+import { ArrangementRatingComponent } from './arrangement-rating/arrangement-rating.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ArrangementCreationComponent } from './arrangement-creation/arrangement
     NavbarComponent,
     RegisteredUserProfileComponent,
     ArrangementComponent,
-    ArrangementCreationComponent
+    ArrangementCreationComponent,
+    ArrangementRatingComponent
   ],
   imports: [CommonModule, RouterModule,MaterialModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
   exports: [HomeComponent,
@@ -26,6 +28,7 @@ import { ArrangementCreationComponent } from './arrangement-creation/arrangement
             NavbarComponent,
             RegisteredUserProfileComponent,
             ArrangementComponent,
-            ArrangementCreationComponent],
+            ArrangementCreationComponent,
+            ArrangementRatingComponent],
 })
 export class ComponentsModule {}

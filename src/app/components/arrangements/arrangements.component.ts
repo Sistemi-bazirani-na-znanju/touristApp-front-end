@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../infrastructure/auth';
 import { RegisteredUserService } from '../../infrastructure/rest/registered-user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RegisteredUser } from '../../infrastructure/rest/model/registered-user.model';
 import { ArrangementService } from '../../infrastructure/rest/arrangements.service';
 import { Arrangement, ArrangementType } from '../../infrastructure/rest/model/arrangement.model';
@@ -19,10 +19,12 @@ export class ArrangementComponent {
   displayedArrangements: Arrangement[] = [];
   selectedSortingOption: String = "";
 
+
   constructor(public arrangementService: ArrangementService,
               private authService: AuthService,
               private userService: RegisteredUserService,
-              private route: ActivatedRoute){
+              private route: ActivatedRoute,
+              private router: Router,){
   }
 
   ngOnInit(): void {
@@ -81,5 +83,10 @@ export class ArrangementComponent {
       default:
         return "Unknown";
     }
+  }
+
+  routeToArrangementRating(arrangementId: number) {
+    console.log("Navigating to arrangement rating");
+    this.router.navigate(['arrangement-rating', arrangementId]);
   }
 }

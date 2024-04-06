@@ -1,0 +1,28 @@
+<div class="registration-container">
+
+
+
+    <form [formGroup]="ratingCreationForm" (ngSubmit)="createRating()" class="registration-form">
+        
+        <div *ngIf="arrangement">
+            <h3>Selected Arrangement:</h3>
+            <p><strong>Name:</strong> {{ arrangement.name }}</p>
+            <p><strong>Type:</strong> {{ getArrangementTypeName(arrangement.type) }}</p>
+            <p><strong>Price:</strong> {{ arrangement.price }}$</p>
+        </div>
+
+        <div>
+            <label class="profile-label">Rating 1-5:</label>
+
+            <input type="range" class="profile-input" formControlName="ratingValue" id="ratingValue" min="1" max="5" step="1">
+            <div *ngIf="ratingCreationForm.controls.ratingValue.invalid && ratingCreationForm.controls.ratingValue.touched" class="error-message">Value is required</div>
+
+        </div>
+    
+        <div>
+            <p class="error-message-creation">{{ creationError }}</p>
+            <button type="submit" class="submit-button">CREATE ARRANGEMENT</button>
+          </div>
+    </form>
+</div>
+  
