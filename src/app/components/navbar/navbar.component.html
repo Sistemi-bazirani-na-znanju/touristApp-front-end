@@ -8,14 +8,14 @@
       
       <button
         mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_USER')"
+        *ngIf="user && hasRole(user.role, 'ROLE_USER')"
         [routerLink]="['profile']"
       >
         Profile (registered user)
       </button>
       <button
         mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_SYSTEMADMIN')"
+        *ngIf="user && hasRole(user.role, 'ROLE_ADMIN')"
         [routerLink]="['register-system-administrator']"
       >
       

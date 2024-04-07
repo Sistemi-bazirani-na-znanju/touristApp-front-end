@@ -34,7 +34,9 @@ export class AuthService {
   user$ = new BehaviorSubject<any>({
     id: 0,
     email: '',
-    roles: []
+    firstName: '',
+    lastName: '',
+    role: {}
   });
 
   private isAuthenticatedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -47,7 +49,8 @@ export class AuthService {
     private regUsService: RegisteredUserService,
     private cookieService: CookieService
   ) {
-    const storedToken = localStorage.getItem('jwt');
+    //const storedToken = localStorage.getItem('jwt');
+    const storedToken = tokenStorage.getAccessToken();
     if (storedToken) {
       this.access_token = storedToken;
       this.setUser();
@@ -78,7 +81,7 @@ export class AuthService {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     });
-    return this.http.post<any>('http://localhost:8080/auth/login', login, { headers })
+    return this.http.post<any>('http://localhost:8080/api/auth/authenticate', login, { headers })
       .pipe(map((res) => {
         console.log(res);
         this.access_token = res.accessToken;
@@ -88,7 +91,8 @@ export class AuthService {
         // const id = tokenPayload.id;
         // console.log('Email:', email);
         // console.log('ID:', id);
-        localStorage.setItem("jwt", res.accessToken);
+        this.tokenStorage.saveAccessToken(res.accessToken);
+        //localStorage.setItem("jwt", res.accessToken);
         this.setUser();
         this.findRegisteredUserById().subscribe({
           next: (result) => {
@@ -126,10 +130,14 @@ export class AuthService {
 
   register(registration: Registration): Observable<AuthenticationResponse> {
     return this.http
-      .post<AuthenticationResponse>(environment.apiHost + 'registration', registration)
+      .post<AuthenticationResponse>(environment.apiHost + 'auth/register', registration)
       .pipe(
         tap((authenticationResponse) => {
           this.tokenStorage.saveAccessToken(authenticationResponse.accessToken);
+          //localStorage.setItem("jwt", authenticationResponse.accessToken);
+          this.access_token = authenticationResponse.accessToken;
+          this.setUser();
+          
           console.log(authenticationResponse.accessToken)
         })
       );
@@ -154,7 +162,8 @@ export class AuthService {
 
   logout(): void {
     this.router.navigate(['/']).then(_ => {
-      localStorage.removeItem("jwt");
+      //localStorage.removeItem("jwt");
+      this.tokenStorage.clear();
       this.access_token = null;
       this.user$.next({email: "", id: 0,roles: []});
       window.location.reload();
@@ -176,9 +185,10 @@ export class AuthService {
     const user: any = {
       id: +jwtHelperService.decodeToken(accessToken).id,
       email: jwtHelperService.decodeToken(accessToken).sub,
-      roles: jwtHelperService.decodeToken(accessToken).roles,
+      role: jwtHelperService.decodeToken(accessToken).role,
+      firstName : jwtHelperService.decodeToken(accessToken).firstName,
+      lastName : jwtHelperService.decodeToken(accessToken).lastName,
     };
-    console.log(user)
     this.user$.next(user);
   }
 

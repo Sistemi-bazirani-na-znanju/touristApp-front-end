@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../infrastructure/auth';
 import { Router } from '@angular/router';
-import { User } from '../../infrastructure/auth/model/user.model';
+import { Role, User, createEmptyUser } from '../../infrastructure/auth/model/user.model';
 import { RegisteredUserService } from '../../infrastructure/rest/registered-user.service';
 @Component({
   selector: 'pd-navbar',
@@ -10,7 +10,7 @@ import { RegisteredUserService } from '../../infrastructure/rest/registered-user
 })
 export class NavbarComponent implements OnInit {
  
-  user: any;
+  user: User = createEmptyUser();
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -21,11 +21,14 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.authService.user$.subscribe(user => {
        this.user = user;
-       console.log(this.user)
     });
   }
 
   onLogout(): void {
     this.authService.logout();
   } 
+
+  hasRole(role: Role, roleName: string): boolean {
+    return role.name === roleName;
+  }
 }
