@@ -36,7 +36,7 @@ export class AuthService {
     email: '',
     firstName: '',
     lastName: '',
-    roles: []
+    role: {}
   });
 
   private isAuthenticatedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -49,7 +49,8 @@ export class AuthService {
     private regUsService: RegisteredUserService,
     private cookieService: CookieService
   ) {
-    const storedToken = localStorage.getItem('jwt');
+    //const storedToken = localStorage.getItem('jwt');
+    const storedToken = tokenStorage.getAccessToken();
     if (storedToken) {
       this.access_token = storedToken;
       this.setUser();
@@ -90,7 +91,8 @@ export class AuthService {
         // const id = tokenPayload.id;
         // console.log('Email:', email);
         // console.log('ID:', id);
-        localStorage.setItem("jwt", res.accessToken);
+        this.tokenStorage.saveAccessToken(res.accessToken);
+        //localStorage.setItem("jwt", res.accessToken);
         this.setUser();
         this.findRegisteredUserById().subscribe({
           next: (result) => {
@@ -132,6 +134,10 @@ export class AuthService {
       .pipe(
         tap((authenticationResponse) => {
           this.tokenStorage.saveAccessToken(authenticationResponse.accessToken);
+          //localStorage.setItem("jwt", authenticationResponse.accessToken);
+          this.access_token = authenticationResponse.accessToken;
+          this.setUser();
+          
           console.log(authenticationResponse.accessToken)
         })
       );
@@ -156,7 +162,8 @@ export class AuthService {
 
   logout(): void {
     this.router.navigate(['/']).then(_ => {
-      localStorage.removeItem("jwt");
+      //localStorage.removeItem("jwt");
+      this.tokenStorage.clear();
       this.access_token = null;
       this.user$.next({email: "", id: 0,roles: []});
       window.location.reload();
@@ -178,11 +185,10 @@ export class AuthService {
     const user: any = {
       id: +jwtHelperService.decodeToken(accessToken).id,
       email: jwtHelperService.decodeToken(accessToken).sub,
-      roles: jwtHelperService.decodeToken(accessToken).roles,
+      role: jwtHelperService.decodeToken(accessToken).role,
       firstName : jwtHelperService.decodeToken(accessToken).firstName,
       lastName : jwtHelperService.decodeToken(accessToken).lastName,
     };
-    console.log(user)
     this.user$.next(user);
   }
 
