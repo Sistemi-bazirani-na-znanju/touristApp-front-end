@@ -147,4 +147,14 @@ import { Rating } from '../../infrastructure/rest/model/rating.model';
     }
     
 
+    formatDate(date: Date): string {
+        const parsedDate = new Date(date);
+        const day = parsedDate.getDate().toString().padStart(2, '0');
+        const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0');
+        const year = (parsedDate.getFullYear() + 1900).toString(); // Adjusted for getYear()
+        const hours = parsedDate.getHours().toString().padStart(2, '0');
+        const minutes = parsedDate.getMinutes().toString().padStart(2, '0');
+      
+        return `${day}/${month}/${year} ${hours}:${minutes}`;
+    }
 }

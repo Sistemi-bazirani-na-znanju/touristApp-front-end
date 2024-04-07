@@ -5,10 +5,12 @@
     <form [formGroup]="ratingCreationForm" (ngSubmit)="createRating()" class="registration-form">
         
         <div *ngIf="arrangement">
-            <h3>Selected Arrangement:</h3>
+            <h3><strong>Arrangement:</strong></h3>
             <p><strong>Name:</strong> {{ arrangement.name }}</p>
             <p><strong>Type:</strong> {{ getArrangementTypeName(arrangement.type) }}</p>
             <p><strong>Price:</strong> {{ arrangement.price }}$</p>
+            <p><strong>Date:</strong> {{ formatDate(arrangement.price) }}</p>
+            <p><strong>Avearage Rating:</strong>{{ arrangement.averageRating }}</p>
         </div>
 
         <div>
