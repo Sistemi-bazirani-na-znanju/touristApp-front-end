@@ -9,6 +9,8 @@ import { MaterialModule } from '../infrastructure/material/material.module';
 import { RegisteredUserProfileComponent } from './registered-user-profile/registered-user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArrangementComponent } from './arrangements/arrangements.component';
+import { ArrangementCreationComponent } from './arrangement-creation/arrangement-creation.component';
+import { ArrangementRatingComponent } from './arrangement-rating/arrangement-rating.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,17 @@ import { ArrangementComponent } from './arrangements/arrangements.component';
     LoginComponent,
     NavbarComponent,
     RegisteredUserProfileComponent,
-    ArrangementComponent
+    ArrangementComponent,
+    ArrangementCreationComponent,
+    ArrangementRatingComponent
   ],
   imports: [CommonModule, RouterModule,MaterialModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
   exports: [HomeComponent,
             LoginComponent,
             NavbarComponent,
             RegisteredUserProfileComponent,
-            ArrangementComponent],
+            ArrangementComponent,
+            ArrangementCreationComponent,
+            ArrangementRatingComponent],
 })
 export class ComponentsModule {}

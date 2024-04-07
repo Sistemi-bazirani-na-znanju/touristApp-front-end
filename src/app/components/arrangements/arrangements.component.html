@@ -1,28 +1,31 @@
 
-<div class="appointments-container">
-    <h2><strong>Arrangements</strong></h2>
+  <div class="appointments-container">
+      <h2><strong>Arrangements</strong></h2>
 
-    <div class="sort">
-      <select id="sortingOptions" [(ngModel)]="selectedSortingOption" (change)="sortArrangements()">
+      <div class="sort">
+        <select id="sortingOptions" [(ngModel)]="selectedSortingOption" (change)="sortArrangements()">
 
-      </select>
-      <!-- <select class="options" id="options" [(ngModel)]="selectedOption" (change)="filterArrangements()">
+        </select>
+        <!-- <select class="options" id="options" [(ngModel)]="selectedOption" (change)="filterArrangements()">
 
-      </select>  -->
-    </div>
-  
-    <div *ngFor="let arrangement of displayedArrangements">
-      <div  class="appointment-card">
-        <div class="card-top">
-          <div class="card-left">
-            <p>Name: {{ arrangement.name }}</p>
-            <p>Type: {{ getArrangementTypeName(arrangement.type) }}</p>
-            <p>Price: {{ arrangement.price }}$</p>
-            <p>Average Rating: <strong>{{ arrangement.averageRating }}</strong></p>
+        </select>  -->
+      </div>
+    
+      <div *ngFor="let arrangement of displayedArrangements">
+        <div  class="appointment-card">
+          <div class="card-top">
+            <div class="card-left">
+              <p><strong>Id:</strong> {{ arrangement.id }}</p>
+              <p><strong>Name:</strong> {{ arrangement.name }}</p>
+              <p><strong>Type:</strong> {{ getArrangementTypeName(arrangement.type) }}</p>
+              <p><strong>Price:</strong> {{ arrangement.price }}$</p>
+              <p><strong>Date:</strong> {{ formatDate(arrangement.date) }}</p>
+              <p><strong>Avearage Rating:</strong> {{ arrangement.averageRating }}</p>
+            </div>
           </div>
+          <button (click)="routeToArrangementRating(arrangement.id)">ADD RATING</button>
+          <button>VIEW MORE</button>
         </div>
-        <button>VIEW MORE</button>
       </div>
     </div>
-  </div>
-  
+    
