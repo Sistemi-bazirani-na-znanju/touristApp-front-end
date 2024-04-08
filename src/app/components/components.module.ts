@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArrangementComponent } from './arrangements/arrangements.component';
 import { ArragementReservationComponent } from './arrangement-reservation/arrangement-reservation.component';
 import { ArrangementCreationComponent } from './arrangement-creation/arrangement-creation.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ArrangementCreationComponent } from './arrangement-creation/arrangement
     RegisteredUserProfileComponent,
     ArrangementComponent,
     ArragementReservationComponent,
-    ArrangementCreationComponent
+    ArrangementCreationComponent,
+    ReservationsComponent
   ],
   imports: [CommonModule, RouterModule,MaterialModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
   exports: [HomeComponent,

@@ -6,31 +6,24 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item [routerLink]="['home']">Home</button>
 
-      <button
-      mat-menu-item
-      [routerLink]="['arrangements']"
-    >
-      Arrangements
-    </button>
-    <button
-      mat-menu-item
-      [routerLink]="['arrangement-creation']"
-    >
-      Arrangement Creation
-    </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_USER')"
-        [routerLink]="['profile']"
-      >
+      <button mat-menu-item [routerLink]="['arrangements']">
+        Arrangements
+      </button>
+      <button mat-menu-item [routerLink]="['arrangement-creation']">
+        Arrangement Creation
+      </button>
+
+      <button mat-menu-item [routerLink]="['all-reservations']">
+        Your reservations
+      </button>
+
+
+      <button mat-menu-item *ngIf="user && user.roles.includes('ROLE_USER')" [routerLink]="['profile']">
         Profile (registered user)
       </button>
-      <button
-        mat-menu-item
-        *ngIf="user && user.roles.includes('ROLE_SYSTEMADMIN')"
-        [routerLink]="['register-system-administrator']"
-      >
-      
+      <button mat-menu-item *ngIf="user && user.roles.includes('ROLE_SYSTEMADMIN')"
+        [routerLink]="['register-system-administrator']">
+
         Register System Administrator (system admin)
       </button>
     </mat-menu>
@@ -40,25 +33,13 @@
     <div class="app-name">Travel</div>
   </div>
   <div class="navbar-right">
-    <div
-      class="nav-button"
-      *ngIf="user && user.email === ''"
-      [routerLink]="['login']"
-    >
+    <div class="nav-button" *ngIf="user && user.email === ''" [routerLink]="['login']">
       Log In
     </div>
-    <div
-      class="nav-button"
-      *ngIf="user && user.email !== ''"
-      (click)="onLogout()"
-    >
+    <div class="nav-button" *ngIf="user && user.email !== ''" (click)="onLogout()">
       Log Out
     </div>
-    <div
-      class="nav-button"
-      *ngIf="user && user.email === ''"
-      [routerLink]="['register']"
-    >
+    <div class="nav-button" *ngIf="user && user.email === ''" [routerLink]="['register']">
       Register
     </div>
   </div>

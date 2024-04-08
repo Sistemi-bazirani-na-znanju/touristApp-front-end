@@ -11,6 +11,7 @@ import { RoleGuard } from './infrastructure/auth/auth-guard/auth-guard.guard';
 import { ArrangementComponent } from './components/arrangements/arrangements.component';
 import { ArragementReservationComponent } from './components/arrangement-reservation/arrangement-reservation.component';
 import { ArrangementCreationComponent } from './components/arrangement-creation/arrangement-creation.component';
+import { ReservationsComponent } from './components/reservations/reservations.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,11 @@ const routes: Routes = [
   {
     path: 'arrangement-creation',
     component: ArrangementCreationComponent
+  },
+
+  {
+    path: 'all-reservations',
+    component: ReservationsComponent
   }
 ];
 

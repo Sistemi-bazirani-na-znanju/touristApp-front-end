@@ -1,16 +1,11 @@
 import { Excursion } from './excursion.model';
 import { Arrangement } from './arrangement.model';
 
-export class ReservationCreation {
+export interface ReservationCreation {
+    id: number,
     numberOfPeople: number;
     totalPrice: number;
-    arrangement:Arrangement;
+    arrangementId: number;
+    arrangementName: string,
     chosenExcursions: Excursion[];
-
-    constructor(numberOfPeople: number, totalPrice:number, arrangement:Arrangement,chosenExcursions: Excursion[]) {
-        this.numberOfPeople=numberOfPeople;
-        this.totalPrice=totalPrice;
-        this.arrangement=arrangement;
-        this.chosenExcursions=chosenExcursions;
-    }
 }

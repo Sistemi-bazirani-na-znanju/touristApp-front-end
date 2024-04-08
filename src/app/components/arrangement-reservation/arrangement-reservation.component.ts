@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArrangementService } from '../../infrastructure/rest/arrangements.service';
 import { AuthService } from '../../infrastructure/auth';
 import { RegisteredUserService } from '../../infrastructure/rest/registered-user.service';
@@ -7,6 +7,8 @@ import { RegisteredUser } from '../../infrastructure/rest/model/registered-user.
 import { Arrangement } from '../../infrastructure/rest/model/arrangement.model';
 import { Excursion } from '../../infrastructure/rest/model/excursion.model';
 import { ReservationCreation } from '../../infrastructure/rest/model/reservation-creation.model';
+import { ReservationService } from '../../infrastructure/rest/reservation.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'pd-arrangement-reservation',
@@ -28,6 +30,9 @@ export class ArragementReservationComponent {
     public arrangementService: ArrangementService,
     private authService: AuthService,
     private userService: RegisteredUserService,
+    private reservationService: ReservationService,
+    private toastr: ToastrService,
+    private router: Router,
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -72,13 +77,31 @@ export class ArragementReservationComponent {
     for (const excursion of this.selectedExcursions) {
       totalPrice += excursion.price;
     }
+
+    const arr = this.arrangement as Arrangement; 
+    const name = arr.name;
     
-    const reservation = new ReservationCreation(
-      this.numberOfPeople,
-      totalPrice,
-      this.arrangement,
-      this.selectedExcursions
-    );
-    console.log('Created reservation:', reservation);
+    const reservation : ReservationCreation =  {
+     id: 0,
+     arrangementId: this.arrangementId,
+     numberOfPeople: this.numberOfPeople,
+     totalPrice: totalPrice,
+     arrangementName: name,
+     chosenExcursions: this.selectedExcursions
+    }
+
+    this.reservationService.create(reservation).subscribe({
+      next: (result: ReservationCreation) => {
+        this.toastr.success('Reservation successfully created','Success');
+        console.log('Created reservation:', result);
+          this.router.navigate(['/arrangements']);
+        
+
+      },
+      error: (err: any) => {
+        this.toastr.error('error', (err))
+      }
+    });
+
   }
 }
