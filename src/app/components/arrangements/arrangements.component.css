@@ -1,11 +1,4 @@
-.appointments-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    width: 100%;
-  }
-  
+
   .appointment-card {
     border: 1px solid rgba(107, 22, 22, 1);
     padding: 10px;
@@ -14,9 +7,10 @@
   }
   
   h2 {
-    color: rgba(107, 22, 22, 1);
-    font-size: 1.5rem;
-  }
+    text-align: center; 
+    margin-top: 20px; 
+    font-size: 30px;
+}
   p{
     font-size: 1rem;
   }
@@ -55,6 +49,38 @@
   justify-content: space-between;
 }
 
-.card-left {
-  
+.reservations-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.reservations-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+  border: green 1px solid;
+  border-radius: 0.3125rem;
+  height: 3rem; 
+  transition: background-color 0.15s;
+  cursor: pointer;
+  width: 20%; 
+  color: white;
+  margin: 0 auto; 
+}
+
+.reservations-container button:hover {
+  background-color: darkgreen;
+}
+
+.reservations-card {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 0px 10px 10px 10px;
+  padding: 10px;
+  margin: 10px;
+
 }

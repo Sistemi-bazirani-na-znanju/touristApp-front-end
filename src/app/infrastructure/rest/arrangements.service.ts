@@ -25,11 +25,11 @@ export class ArrangementService {
         return result;
     }
 
-    getById(id: number): Observable<Arrangement> {
-        const path = this.basePath + 'arrangements/' + id;
-        let result = this.http.get<Arrangement>(path, { headers: this.headers });
-        return result;
-    }
+  getById(id: number): Observable<any> {
+    const path = this.basePath + 'arrangements/' + id;
+    let result = this.http.get<any>(path, { headers: this.headers });
+    return result;
+  }
 
     update(id: number, arrangement: Arrangement): Observable<Arrangement> {
         const path = this.basePath + 'arrangements/update/' + id;

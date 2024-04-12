@@ -37,10 +37,10 @@ export class ArrangementComponent {
   getArrangements(userId: number) {
     this.arrangementService.getAll().subscribe({
         next: (arrangements: Arrangement[]) => {
-            this.displayedArrangements = arrangements; // corrected assignment
+            this.displayedArrangements = arrangements; 
             this.sortArrangements();
             console.log("Arrangements retrieved successfully");
-            console.log(this.displayedArrangements); // corrected log
+            console.log(this.displayedArrangements); 
         },
         error: (errData) => {
             console.log("Error: " + errData);
@@ -94,7 +94,7 @@ export class ArrangementComponent {
     const parsedDate = new Date(date);
     const day = parsedDate.getDate().toString().padStart(2, '0');
     const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0');
-    const year = (parsedDate.getFullYear() + 1900).toString(); // Adjusted for getYear()
+    const year = (parsedDate.getFullYear() + 1900).toString(); 
     const hours = parsedDate.getHours().toString().padStart(2, '0');
     const minutes = parsedDate.getMinutes().toString().padStart(2, '0');
   
