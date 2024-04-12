@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RegisteredUser } from '../../infrastructure/rest/model/registered-user.model';
-import { ReservationCreation } from '../../infrastructure/rest/model/reservation-creation.model';
+import { Reservation } from '../../infrastructure/rest/model/reservation.model';
 import { ArrangementService } from '../../infrastructure/rest/arrangements.service';
 import { AuthService } from '../../infrastructure/auth';
 import { RegisteredUserService } from '../../infrastructure/rest/registered-user.service';
@@ -16,7 +16,7 @@ export class ReservationsComponent {
   userId: number = -1;
   user: RegisteredUser = new RegisteredUser();
   canEdit: boolean = false;
-  reservations: ReservationCreation[] = []
+  reservations: Reservation[] = []
   selectedSortingOption: String = "";
 
   constructor(public arrangementService: ArrangementService,
@@ -33,7 +33,7 @@ export class ReservationsComponent {
   getReservations(): void{
   
     this.reservationService.getAllReservations().subscribe({
-      next: (result: ReservationCreation[]) => {
+      next: (result: Reservation[]) => {
         this.reservations = result
         console.log("all reservations: ", this.reservations);
         

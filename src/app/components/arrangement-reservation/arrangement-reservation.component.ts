@@ -6,7 +6,7 @@ import { RegisteredUserService } from '../../infrastructure/rest/registered-user
 import { RegisteredUser } from '../../infrastructure/rest/model/registered-user.model';
 import { Arrangement } from '../../infrastructure/rest/model/arrangement.model';
 import { Excursion } from '../../infrastructure/rest/model/excursion.model';
-import { ReservationCreation } from '../../infrastructure/rest/model/reservation-creation.model';
+import { Reservation } from '../../infrastructure/rest/model/reservation.model';
 import { ReservationService } from '../../infrastructure/rest/reservation.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -39,7 +39,7 @@ export class ArragementReservationComponent {
       this.arrangementId = params['id'];
       this.getArrangementById(this.arrangementId);
     });
-    //this.fetchUser();
+     this.fetchUser();
   }
   getArrangementById(arrangementId: number) {
     this.arrangementService.getById(this.arrangementId).subscribe((result) => {
@@ -81,9 +81,10 @@ export class ArragementReservationComponent {
     const arr = this.arrangement as Arrangement; 
     const name = arr.name;
     
-    const reservation : ReservationCreation =  {
+    const reservation : Reservation =  {
      id: 0,
      arrangementId: this.arrangementId,
+     userId: this.userId,
      numberOfPeople: this.numberOfPeople,
      totalPrice: totalPrice,
      arrangementName: name,
@@ -91,7 +92,7 @@ export class ArragementReservationComponent {
     }
 
     this.reservationService.create(reservation).subscribe({
-      next: (result: ReservationCreation) => {
+      next: (result: Reservation) => {
         this.toastr.success('Reservation successfully created','Success');
         console.log('Created reservation:', result);
           this.router.navigate(['/arrangements']);

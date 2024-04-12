@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "../../../env/environment";
-import { ReservationCreation } from "./model/reservation-creation.model";
+import { Reservation } from "./model/reservation.model";
 import { Observable } from "rxjs";
 
 @Injectable({
@@ -18,16 +18,16 @@ import { Observable } from "rxjs";
           this.basePath = environment.apiHost;
       }
   
-      create(reservation: ReservationCreation): Observable<ReservationCreation> {
+      create(reservation: Reservation): Observable<Reservation> {
           const path = this.basePath + 'reservations';
-          return this.http.post<ReservationCreation>(path, reservation, { headers: this.headers });
+          return this.http.post<Reservation>(path, reservation, { headers: this.headers });
 
           
       }
 
-      getAllReservations(): Observable<ReservationCreation[]> {
+      getAllReservations(): Observable<Reservation[]> {
         const path = this.basePath + 'reservations';
-        let result = this.http.get<ReservationCreation[]>(path, { headers: this.headers });
+        let result = this.http.get<Reservation[]>(path, { headers: this.headers });
         return result;
     }
   }

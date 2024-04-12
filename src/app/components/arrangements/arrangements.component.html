@@ -1,27 +1,13 @@
 
-<div class="appointments-container">
     <h2><strong>Arrangements</strong></h2>
-
-    <div class="sort">
-      <select id="sortingOptions" [(ngModel)]="selectedSortingOption" (change)="sortArrangements()">
-
-      </select>
-      <!-- <select class="options" id="options" [(ngModel)]="selectedOption" (change)="filterArrangements()">
-
-      </select>  -->
-    </div>
-  
-    <div *ngFor="let arrangement of displayedArrangements">
-      <div  class="appointment-card">
-        <div class="card-top">
-          <div class="card-left">
+      <div class="reservations-container" *ngFor="let arrangement of displayedArrangements">
+        <div class="reservations-card">
+            <div class="name-rate d-flex justify-content-between">
             <p>Name: {{ arrangement.name }}</p>
             <p>Type: {{ getArrangementTypeName(arrangement.type) }}</p>
             <p>Price: {{ arrangement.price }}$</p>
           </div>
+          <button [routerLink]="['/make-reservation/', arrangement.id]">MAKE RESERVATION</button>
         </div>
-        <button [routerLink]="['/make-reservation/', arrangement.id]">MAKE RESERVATION</button>
       </div>
-    </div>
-  </div>
   
