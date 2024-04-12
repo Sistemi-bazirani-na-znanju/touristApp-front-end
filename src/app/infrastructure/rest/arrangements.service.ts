@@ -31,10 +31,16 @@ export class ArrangementService {
     return result;
   }
 
-    update(id: number, arrangement: any): Observable<Arrangement> {
-        const path = this.basePath + 'arrangements/' + id;
+    update(id: number, arrangement: Arrangement): Observable<Arrangement> {
+        const path = this.basePath + 'arrangements/update/' + id;
         console.log(path);
         return this.http.put<Arrangement>(path, arrangement, { headers: this.headers });
+    }
+
+    updateRating(id: number, rating: number): Observable<Arrangement> {
+        const path = this.basePath + 'arrangements/ratings/' + id;
+        return this.http.put<Arrangement>(path, rating, { headers: this.headers });
+    
     }
 
     create(arrangement: Arrangement): Observable<Arrangement> {

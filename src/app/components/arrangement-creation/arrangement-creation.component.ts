@@ -8,10 +8,13 @@ import {
 import { AuthService } from '../../infrastructure/auth/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 import { ArrangementService } from '../../infrastructure/rest/arrangements.service';
 import { Arrangement, ArrangementType } from '../../infrastructure/rest/model/arrangement.model';
 import { Excursion, ExcursionType } from '../../infrastructure/rest/model/excursion.model';
-import { S } from '@fullcalendar/core/internal-common';
+
+
+
 
 @Component({
   selector: 'pd-arrangement-creation',
@@ -45,6 +48,7 @@ export class ArrangementCreationComponent {
       name: new FormControl('', [Validators.required]),
       price: new FormControl('', [Validators.required, this.numberValidator]),
       type: new FormControl('', [Validators.required]),
+      date: new FormControl('', [Validators.required]),
     }
   );
 
@@ -88,6 +92,7 @@ export class ArrangementCreationComponent {
         type: type,
         price: price,
         averageRating: 0,
+        date: new Date(),
         excursions: this.excursions,
         ratings: []
       };

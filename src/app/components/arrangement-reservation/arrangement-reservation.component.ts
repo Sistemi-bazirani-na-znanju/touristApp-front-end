@@ -73,9 +73,9 @@ export class ArragementReservationComponent {
   }
   submitReservation(): void {
 
-    let totalPrice = this.arrangement.price;
+    let totalPrice = this.arrangement.price * this.numberOfPeople;
     for (const excursion of this.selectedExcursions) {
-      totalPrice += excursion.price;
+      totalPrice += excursion.price * this.numberOfPeople;
     }
 
     const arr = this.arrangement as Arrangement; 
@@ -93,7 +93,8 @@ export class ArragementReservationComponent {
 
     this.reservationService.create(reservation).subscribe({
       next: (result: Reservation) => {
-        this.toastr.success('Reservation successfully created','Success');
+        const successMessage = `Reservation successfully created, start price: ${totalPrice}, after discount: ${result.totalPrice}`;
+        this.toastr.success(successMessage ,'Success');
         console.log('Created reservation:', result);
           this.router.navigate(['/arrangements']);
         

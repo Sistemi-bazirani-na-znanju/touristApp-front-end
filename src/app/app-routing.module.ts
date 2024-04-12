@@ -12,6 +12,7 @@ import { ArrangementComponent } from './components/arrangements/arrangements.com
 import { ArragementReservationComponent } from './components/arrangement-reservation/arrangement-reservation.component';
 import { ArrangementCreationComponent } from './components/arrangement-creation/arrangement-creation.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
+import { ArrangementRatingComponent } from './components/arrangement-rating/arrangement-rating.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,10 @@ const routes: Routes = [
   {
     path: 'all-reservations',
     component: ReservationsComponent
+  },
+  {
+    path: 'arrangement-rating/:id',
+    component: ArrangementRatingComponent
   }
 ];
 

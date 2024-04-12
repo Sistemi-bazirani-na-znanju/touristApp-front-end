@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../infrastructure/auth';
 import { RegisteredUserService } from '../../infrastructure/rest/registered-user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RegisteredUser } from '../../infrastructure/rest/model/registered-user.model';
 import { ArrangementService } from '../../infrastructure/rest/arrangements.service';
 import { Arrangement, ArrangementType } from '../../infrastructure/rest/model/arrangement.model';
@@ -19,10 +19,12 @@ export class ArrangementComponent {
   displayedArrangements: Arrangement[] = [];
   selectedSortingOption: String = "";
 
+
   constructor(public arrangementService: ArrangementService,
               private authService: AuthService,
               private userService: RegisteredUserService,
-              private route: ActivatedRoute){
+              private route: ActivatedRoute,
+              private router: Router,){
   }
 
   ngOnInit(): void {
@@ -35,10 +37,10 @@ export class ArrangementComponent {
   getArrangements(userId: number) {
     this.arrangementService.getAll().subscribe({
         next: (arrangements: Arrangement[]) => {
-            this.displayedArrangements = arrangements; // corrected assignment
+            this.displayedArrangements = arrangements; 
             this.sortArrangements();
             console.log("Arrangements retrieved successfully");
-            console.log(this.displayedArrangements); // corrected log
+            console.log(this.displayedArrangements); 
         },
         error: (errData) => {
             console.log("Error: " + errData);
@@ -82,4 +84,23 @@ export class ArrangementComponent {
         return "Unknown";
     }
   }
+
+  routeToArrangementRating(arrangementId: number) {
+    console.log("Navigating to arrangement rating");
+    this.router.navigate(['arrangement-rating', arrangementId]);
+  }
+
+  formatDate(date: Date): string {
+    const parsedDate = new Date(date);
+    const day = parsedDate.getDate().toString().padStart(2, '0');
+    const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0');
+    const year = (parsedDate.getFullYear() + 1900).toString(); 
+    const hours = parsedDate.getHours().toString().padStart(2, '0');
+    const minutes = parsedDate.getMinutes().toString().padStart(2, '0');
+  
+    return `${day}/${month}/${year} ${hours}:${minutes}`;
+  }
+  
+  
+  
 }

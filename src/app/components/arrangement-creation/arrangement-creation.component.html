@@ -10,7 +10,7 @@
   
         <label for="price">Price</label>
         <input id="price" formControlName="price" type="text" class="form-control" />
-        <div *ngIf="arrangementCreationForm.controls.price.invalid && arrangementCreationForm.controls.price.touched" class="error-message">Price is required</div>
+        <div *ngIf="arrangementCreationForm.controls.price.invalid && arrangementCreationForm.controls.price.touched" class="error-message">Price in numerical is required</div>
   
         <label for="type">Type</label>
         <select id="type" formControlName="type" class="form-control">
@@ -18,11 +18,24 @@
           <option value="FAMILY">Family</option>
           <option value="GROUP">Group</option>
         </select>
+
+        <br>
+        <label for="type">Date</label>
+        <input
+        class="profile-input"
+        id="date"
+        type="datetime-local"
+        name="date"
+        formControlName="date" 
+      />
+        <div *ngIf="arrangementCreationForm.controls.price.invalid && arrangementCreationForm.controls.price.touched" class="error-message">Date is required</div>
+  
+
         <div *ngIf="arrangementCreationForm.controls.type.invalid && arrangementCreationForm.controls.type.touched" class="error-message">Type is required</div>
       </div>
 
       <div class="excursion-container">
-        <h1>ADD EXCURSION</h1>
+        <h1>ADD EXCURSION TO ARRANGEMENT</h1>
         <form [formGroup]="excursionCreationForm" (ngSubmit)="addExcursion()" class="excursion-form">
             <div class="form-group">
               <label for="name">Name</label>
