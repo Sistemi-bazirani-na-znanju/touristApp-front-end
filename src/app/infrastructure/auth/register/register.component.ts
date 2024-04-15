@@ -66,11 +66,11 @@ export class RegisterComponent {
       password: this.registrationForm.value.password || ""
     };
     
-    console.log("Registration Data:", registration);
-    console.log("Poslat zahtev auth servisu");
+    // console.log("Registration Data:", registration);
+    // console.log("Poslat zahtev auth servisu");
 
     if (this.registrationForm.valid) {
-      console.log("Uspesno popunjena forma");
+      // console.log("Uspesno popunjena forma");
       this.authService.register(registration).subscribe({
         next: () => {
           this.router.navigate(['welcome']);

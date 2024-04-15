@@ -83,16 +83,9 @@ export class AuthService {
     });
     return this.http.post<any>('http://localhost:8080/api/auth/authenticate', login, { headers })
       .pipe(map((res) => {
-        console.log(res);
+
         this.access_token = res.accessToken;
-        //AKO VAM TREBA ID ILI EMAIL ULOGOVANOG USERA
-        // const tokenPayload = JSON.parse(atob(res.accessToken.split('.')[1]));
-        // const email = tokenPayload.sub;
-        // const id = tokenPayload.id;
-        // console.log('Email:', email);
-        // console.log('ID:', id);
         this.tokenStorage.saveAccessToken(res.accessToken);
-        //localStorage.setItem("jwt", res.accessToken);
         this.setUser();
         this.findRegisteredUserById().subscribe({
           next: (result) => {
@@ -134,11 +127,8 @@ export class AuthService {
       .pipe(
         tap((authenticationResponse) => {
           this.tokenStorage.saveAccessToken(authenticationResponse.accessToken);
-          //localStorage.setItem("jwt", authenticationResponse.accessToken);
           this.access_token = authenticationResponse.accessToken;
           this.setUser();
-          
-          console.log(authenticationResponse.accessToken)
         })
       );
   }
@@ -162,7 +152,6 @@ export class AuthService {
 
   logout(): void {
     this.router.navigate(['/']).then(_ => {
-      //localStorage.removeItem("jwt");
       this.tokenStorage.clear();
       this.access_token = null;
       this.user$.next({email: "", id: 0,roles: []});
