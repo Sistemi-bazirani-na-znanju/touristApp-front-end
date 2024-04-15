@@ -9,22 +9,16 @@
       <button mat-menu-item [routerLink]="['arrangements']">
         Arrangements
       </button>
-      <button mat-menu-item [routerLink]="['arrangement-creation']">
+      <button mat-menu-item *ngIf="user && hasRole(user.role, 'ROLE_ADMIN')" [routerLink]="['arrangement-creation']">
         Arrangement Creation
       </button>
 
-      <button mat-menu-item  [routerLink]="['all-reservations']">
+      <button mat-menu-item *ngIf="user && hasRole(user.role, 'ROLE_USER')" [routerLink]="['all-reservations']">
         Your reservations
       </button>
 
     
-      <button
-        mat-menu-item
-        *ngIf="user && hasRole(user.role, 'ROLE_ADMIN')"
-        [routerLink]="['register-system-administrator']"
-      >
-      Register System Administrator (system admin)
-      </button>
+      
 
         
     </mat-menu>
