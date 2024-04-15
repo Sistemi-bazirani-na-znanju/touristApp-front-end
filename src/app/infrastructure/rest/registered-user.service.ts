@@ -17,17 +17,8 @@ export class RegisteredUserService {
 
   getById(id: number): Observable<RegisteredUser> {
     console.log(localStorage.getItem("jwt"));
-    const path = this.basePath + "registered-users/by-id/" + id;
+    const path = this.basePath + "users/" + id;
     return this.http.get<RegisteredUser>(path, {headers: this.headers});
   }
 
-  update(id: number, updatedUser: any): Observable<RegisteredUser> {
-    const path = this.basePath + "registered-users/" + id;
-    return this.http.put<RegisteredUser>(path, updatedUser, {headers: this.headers});
-  }
-
-  addPenaltyPoints(id: number, twoPoints: boolean): Observable<RegisteredUser> {
-    const path = this.basePath + "registered-users/penaltyPoints/" + id;
-    return this.http.put<RegisteredUser>(path, twoPoints, {headers: this.headers});
-  }
 }

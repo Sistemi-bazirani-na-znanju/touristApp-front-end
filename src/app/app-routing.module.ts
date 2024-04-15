@@ -6,8 +6,6 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './infrastructure/auth/register/register.component';
 import { RegistrationRequestComfirmationComponent } from './infrastructure/auth/registration-request-comfirmation/registration-request-comfirmation.component';
 import { RegistrationRequestCompleteComponent } from './infrastructure/auth/registration-request-complete/registration-request-complete.component';
-import { RegisteredUserProfileComponent } from './components/registered-user-profile/registered-user-profile.component';
-import { RoleGuard } from './infrastructure/auth/auth-guard/auth-guard.guard';
 import { WelcomePageComponent } from './infrastructure/auth/welcome-page/welcome-page.component';
 import { ArrangementComponent } from './components/arrangements/arrangements.component';
 import { ArragementReservationComponent } from './components/arrangement-reservation/arrangement-reservation.component';
@@ -45,24 +43,12 @@ const routes: Routes = [
     component: RegistrationRequestCompleteComponent,
   },
   {
-    path: 'profile',
-    component: RegisteredUserProfileComponent,
-    // canActivate: [RoleGuard],
-    // data: {
-    //   expectedRole: 'ROLE_USER',
-    // },
-  },
-  {
     path: 'arrangements',
     component: ArrangementComponent
   },
   {
     path: 'make-reservation/:id',
-    component: ArragementReservationComponent,
-    canActivate: [RoleGuard],
-    data: {
-      expectedRole: 'ROLE_USER',
-    }
+    component: ArragementReservationComponent
   },
   {
     path: 'arrangement-creation',
@@ -71,11 +57,7 @@ const routes: Routes = [
 
   {
     path: 'all-reservations',
-    component: ReservationsComponent,
-    canActivate: [RoleGuard],
-    data: {
-      expectedRole: 'ROLE_USER',
-    }
+    component: ReservationsComponent
   },
   {
     path: 'arrangement-rating/:id',

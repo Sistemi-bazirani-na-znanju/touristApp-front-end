@@ -6,7 +6,6 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../infrastructure/material/material.module';
-import { RegisteredUserProfileComponent } from './registered-user-profile/registered-user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArrangementComponent } from './arrangements/arrangements.component';
 import { ArragementReservationComponent } from './arrangement-reservation/arrangement-reservation.component';
@@ -19,7 +18,6 @@ import { ArrangementRatingComponent } from './arrangement-rating/arrangement-rat
     HomeComponent,
     LoginComponent,
     NavbarComponent,
-    RegisteredUserProfileComponent,
     ArrangementComponent,
     ArragementReservationComponent,
     ArrangementCreationComponent,
@@ -30,7 +28,6 @@ import { ArrangementRatingComponent } from './arrangement-rating/arrangement-rat
   exports: [HomeComponent,
             LoginComponent,
             NavbarComponent,
-            RegisteredUserProfileComponent,
             ArrangementComponent,
             ArragementReservationComponent,
             ArrangementCreationComponent,
