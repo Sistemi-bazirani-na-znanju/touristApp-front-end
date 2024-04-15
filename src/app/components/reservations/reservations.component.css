@@ -1,0 +1,60 @@
+
+h2 {
+    text-align: center; 
+    margin-top: 20px; 
+    font-size: 30px;
+    padding-bottom: 3vh;
+}
+
+h3 {
+    text-align: center; 
+    font-size: 22px;
+}
+.reservations-containers {
+    min-height: 100vh;
+    padding: 5vh;
+  }
+
+header {
+    background-color: #4c7aaf;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.main-content {
+    padding-left: 20rem;
+    padding-right: 20rem;
+    text-align: center;
+}
+
+.reservations-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.reservations-card {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 0px 10px 10px 10px;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+.reservations-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-width: 2px;
+  }
+
+.excursions {
+    margin-top: 10px; 
+    text-align: left; 
+}
+
+.excursions h4 {
+    color: #4c7aaf;
+}

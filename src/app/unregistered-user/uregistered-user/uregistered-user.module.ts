@@ -15,8 +15,7 @@ import { ComponentsModule } from '../../components/components.module';
     RouterModule,
     FontAwesomeModule,
     FormsModule,
-    ComponentsModule,
-
+    ComponentsModule
   ],
   exports: [
   ],

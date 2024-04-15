@@ -5,7 +5,18 @@
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item [routerLink]="['home']">Home</button>
-      
+
+      <button mat-menu-item [routerLink]="['arrangements']">
+        Arrangements
+      </button>
+      <button mat-menu-item [routerLink]="['arrangement-creation']">
+        Arrangement Creation
+      </button>
+
+      <button mat-menu-item *ngIf="!this.user" [routerLink]="['all-reservations']">
+        Your reservations
+      </button>
+
       <button
         mat-menu-item
         *ngIf="user && hasRole(user.role, 'ROLE_USER')"
@@ -18,35 +29,24 @@
         *ngIf="user && hasRole(user.role, 'ROLE_ADMIN')"
         [routerLink]="['register-system-administrator']"
       >
-      
-        Register System Administrator (system admin)
+      Register System Administrator (system admin)
       </button>
+
+        
     </mat-menu>
   </div>
   <div class="app-name-icon" [routerLink]="['']">
-    <img class="app-icon" src="../../../assets/icons/medicine-van.svg" />
-    <div class="app-name">Medspress</div>
+    <img class="app-icon" src="../../../assets/icons/travel.png" />
+    <div class="app-name">Travel</div>
   </div>
   <div class="navbar-right">
-    <div
-      class="nav-button"
-      *ngIf="user && user.email === ''"
-      [routerLink]="['login']"
-    >
+    <div class="nav-button" *ngIf="user && user.email === ''" [routerLink]="['login']">
       Log In
     </div>
-    <div
-      class="nav-button"
-      *ngIf="user && user.email !== ''"
-      (click)="onLogout()"
-    >
+    <div class="nav-button" *ngIf="user && user.email !== ''" (click)="onLogout()">
       Log Out
     </div>
-    <div
-      class="nav-button"
-      *ngIf="user && user.email === ''"
-      [routerLink]="['register']"
-    >
+    <div class="nav-button" *ngIf="user && user.email === ''" [routerLink]="['register']">
       Register
     </div>
   </div>

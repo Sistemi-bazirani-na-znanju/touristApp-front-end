@@ -1,0 +1,128 @@
+/* Apply a CSS reset to ensure consistent styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+ 
+  h1{
+    padding-top: 40 px;
+  }
+  
+  .registration-container h1{
+    padding-top: 50px;
+  }
+
+  /* Style the registration container */
+  .registration-container {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Style the form */
+  .registration-form {
+    
+    width: 60vw; /* Set the form width to 30% of the viewport width */
+    margin: 10 auto; /* Center the form horizontally */
+    margin-top: 50px; /* Add space between h1 and the form */
+    border: 2px solid #ccc; /* Add border to the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 40px; /* Add padding to the form content */
+  }
+
+  .excursion-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+  }
+
+  .excursion-form {
+    
+    width: 40vw; /* Set the form width to 30% of the viewport width */
+    margin: 10 auto; /* Center the form horizontally */
+    margin-top: 50px; /* Add space between h1 and the form */
+    border: 2px solid #ccc; /* Add border to the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 40px; /* Add padding to the form content */
+  }
+  
+  /* Style the form group to create space between label and input */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Style the labels */
+  label {
+    margin-bottom: 10px; /* Add space between labels and input fields */
+  }
+  
+  /* Style the input fields */
+  input {
+    width: 100%; /* Make the input fields take up 100% of the width within the form */
+    padding: 8px; /* Add padding for better visual appeal */
+    margin-bottom: 20px; /* Add space between input fields */
+  }
+  
+  /* Style the submit button */
+  .submit-button {
+    width: 20vw;
+    padding: 10px 5px; /* 20px padding on top, 10px on other sides */
+    background-color: transparent; /* Set button background to transparent */
+    color: #000; /* Set text color to black */
+    border: 2px solid #000; /* Set black border */
+    cursor: pointer;
+    margin-top: 50px; /* Add margin to the top for spacing */
+    margin-bottom: 50px;
+  }
+  
+  .error-message {
+    color: #ff0000; /* Red color for the error message text */
+    font-size: 14px; /* Adjust the font size as needed */
+    margin-top: 5px; /* Provide some spacing at the top */
+    margin-bottom: 20px; 
+  }
+
+  .error-message-creation {
+    color: #ff0000; /* Red color for the error message text */
+    font-size: 18px; /* Adjust the font size as needed */
+    margin-top: 1vw; /* Provide some spacing at the top */
+    margin-bottom: 1vw; 
+  }
+
+  .appointments-container {
+    margin-top: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+  
+  .appointment-card {
+    border: 1px solid rgba(107, 22, 22, 1);
+    padding: 10px;
+    margin-bottom: 10px;
+
+    width: 40vw;
+  }
+  
+  .profile-input {
+
+    height: 2rem;
+    width: calc(100% - 1rem);
+    margin-top: 0.5rem;
+    padding-inline: 0.5rem;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 1);
+    border: rgba(0, 0, 0, 1) 1px solid;
+    border-radius: 0.3125rem;
+    cursor: default;
+}

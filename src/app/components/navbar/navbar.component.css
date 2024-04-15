@@ -7,7 +7,7 @@
 }
 
 .toolbar {
-  background-color: rgb(107, 22, 22);
+  background-color: rgb(50, 153, 255);
   padding: 15px;
   display: flex;
   justify-content: center; /* Center all items in the toolbar */

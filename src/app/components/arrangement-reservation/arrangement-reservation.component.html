@@ -1,0 +1,23 @@
+<div class="reservation-container">
+    <div class="arrangement-details">
+      <h1>{{ arrangement.name }}</h1>
+      <p>Type: {{ arrangement.type }}</p>
+      <p><strong>Price: ${{ arrangement.price }}</strong> </p>
+      <p>Average Rating: {{ arrangement.averageRating }}</p>
+      <p>Number of People: <input type="number" [(ngModel)]="numberOfPeople" [disabled]="isIndividualArrangement" /></p>
+    </div>
+    
+    <div class="excursions">
+      <h2>Excursions</h2>
+      <div *ngFor="let excursion of arrangement.excursions" class="excursion-card">
+        <input type="checkbox" (change)="toggleExcursionSelection(excursion)" />
+        <label>{{ excursion.name }}</label>
+        <p><strong>Price: ${{ excursion.price }}</strong></p>
+        <p>Type: {{ excursion.type }}</p>
+        <!-- Add more fields as needed -->
+      </div>
+    </div>
+
+    <button class="centered-button" (click)="submitReservation()">Submit</button>
+  </div>
+  
