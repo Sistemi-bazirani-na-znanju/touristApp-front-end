@@ -1,5 +1,7 @@
 
-    <h2><strong>Arrangements</strong></h2>
+    
+    <div class="reservations-containers">
+      <h2><strong>Arrangements</strong></h2>
       <div class="reservations-container" *ngFor="let arrangement of displayedArrangements">
         <div class="reservations-card">
             <div class="name-rate d-flex justify-content-between">
@@ -10,4 +12,6 @@
           <button [routerLink]="['/make-reservation/', arrangement.id]">MAKE RESERVATION</button>
         </div>
       </div>
+    </div>
+      
   

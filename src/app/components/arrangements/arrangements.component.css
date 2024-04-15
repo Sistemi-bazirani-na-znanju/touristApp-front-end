@@ -10,6 +10,7 @@
     text-align: center; 
     margin-top: 20px; 
     font-size: 30px;
+    padding-bottom: 3vh;
 }
   p{
     font-size: 1rem;
@@ -57,6 +58,10 @@
   margin-right: 20px;
 }
 
+.reservations-containers {
+  min-height: 100vh;
+  padding: 5vh;
+}
 .reservations-container button {
   display: flex;
   align-items: center;

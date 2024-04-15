@@ -1,21 +1,23 @@
-<h2>Your reservations</h2>
-<div class="reservations-container" *ngFor="let r of reservations">
-    <div class="reservations-card">
-        <div class="name-rate d-flex justify-content-between">
-            <h3>{{r.arrangementName}}</h3>
-            <p>Number of people: <i>{{r.numberOfPeople}}</i></p>
+<div class="reservations-containers">
+    <h2>Your reservations</h2>
+    <div class="reservations-container" *ngFor="let r of reservations">
+        <div class="reservations-card">
+            <div class="name-rate d-flex justify-content-between">
+                <h3>{{r.arrangementName}}</h3>
+                <p>Number of people: <i>{{r.numberOfPeople}}</i></p>
+            </div>
+
+            <div class="excursions">
+                <h4>Excursions:</h4>
+                <ul>
+                    <li *ngFor="let excursion of r.chosenExcursions">{{excursion.name}}</li>
+                </ul>
+            </div>
+
+            <br>
+        <p class="">Total price: {{r.totalPrice}} </p>
+
+                        
         </div>
-
-        <div class="excursions">
-            <h4>Excursions:</h4>
-            <ul>
-                <li *ngFor="let excursion of r.chosenExcursions">{{excursion.name}}</li>
-            </ul>
-        </div>
-
-        <br>
-       <p class="">Total price: {{r.totalPrice}} </p>
-
-                    
     </div>
 </div>
