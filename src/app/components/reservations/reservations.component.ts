@@ -27,16 +27,30 @@ export class ReservationsComponent {
   }
 
   ngOnInit(): void {
-    this.getReservations();
+    this.fetchUser();
+
+  }
+
+  fetchUser(): void {
+    this.authService.user$.subscribe(user => {
+      this.user = user;
+      if (!user.id) return;
+      this.userId = user.id;
+      this.userService.getById(this.userId).subscribe(registeredUser => {
+        this.user = registeredUser;
+        console.log("USER");
+        console.log(this.user)
+        this.getReservations();
+      })
+    });
   }
 
   getReservations(): void{
   
     this.reservationService.getAllReservations().subscribe({
       next: (result: Reservation[]) => {
-        this.reservations = result
-        console.log("all reservations: ", this.reservations);
-        
+        this.reservations = result.filter(reservation => reservation.userId === this.userId);
+        console.log("Filtered reservations: ", this.reservations);        
       },
       error: (error: any) => console.log(error)
     });        

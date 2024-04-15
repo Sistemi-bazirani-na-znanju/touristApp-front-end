@@ -13,7 +13,7 @@
         Arrangement Creation
       </button>
 
-      <button mat-menu-item [routerLink]="['all-reservations']">
+      <button mat-menu-item *ngIf="!this.user" [routerLink]="['all-reservations']">
         Your reservations
       </button>
 

@@ -53,7 +53,11 @@ const routes: Routes = [
   },
   {
     path: 'make-reservation/:id',
-    component: ArragementReservationComponent
+    component: ArragementReservationComponent,
+    canActivate: [RoleGuard],
+    data: {
+      expectedRole: 'ROLE_USER',
+    }
   },
   {
     path: 'arrangement-creation',
@@ -62,7 +66,11 @@ const routes: Routes = [
 
   {
     path: 'all-reservations',
-    component: ReservationsComponent
+    component: ReservationsComponent,
+    canActivate: [RoleGuard],
+    data: {
+      expectedRole: 'ROLE_USER',
+    }
   },
   {
     path: 'arrangement-rating/:id',
