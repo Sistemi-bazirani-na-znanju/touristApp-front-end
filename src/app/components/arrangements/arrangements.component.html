@@ -6,8 +6,12 @@
           <p>Name: {{ arrangement.name }}</p>
           <p>Type: {{ getArrangementTypeName(arrangement.type) }}</p>
           <p>Price: {{ arrangement.price }}$</p>
+          <p>Avearage Rating: {{ arrangement.averageRating }}</p>
+
         </div>
         <button *ngIf="userId!==-1" [routerLink]="['/make-reservation/', arrangement.id]">MAKE RESERVATION</button>
+        <br>
+        <button (click)="routeToArrangementRating(arrangement.id)">ADD RATING</button>
     </div>
   </div>
 </div>
