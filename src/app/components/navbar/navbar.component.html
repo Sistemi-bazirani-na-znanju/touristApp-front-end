@@ -17,13 +17,7 @@
         Your reservations
       </button>
 
-      <button
-        mat-menu-item
-        *ngIf="user && hasRole(user.role, 'ROLE_USER')"
-        [routerLink]="['profile']"
-      >
-        Profile (registered user)
-      </button>
+    
       <button
         mat-menu-item
         *ngIf="user && hasRole(user.role, 'ROLE_ADMIN')"
