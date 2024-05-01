@@ -1,0 +1,16 @@
+<div class="reservations-containers">
+    <h2><strong>Vehicles</strong></h2>
+    <div class="reservations-container" *ngFor="let v of displayedVehicles">
+        <div class="reservations-card">
+            <div class="card-top">
+                <img src="{{ v.imageURL }}" alt="Vehicle Image" class="vehicle-image">
+                <div class="name-rate">
+                    <p>Model: {{ v.modelName }}</p>
+                    <p>Current State: {{ v.currentState }}</p>
+                    <p>Price: {{ v.price }}$</p>
+                </div>
+            </div>
+            <button *ngIf="userId !== -1" [routerLink]="['/', v.id]">MAKE RESERVATION</button>
+        </div>
+    </div>
+</div>

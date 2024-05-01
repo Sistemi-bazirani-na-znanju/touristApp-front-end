@@ -12,6 +12,7 @@ import { ArragementReservationComponent } from './arrangement-reservation/arrang
 import { ArrangementCreationComponent } from './arrangement-creation/arrangement-creation.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { ArrangementRatingComponent } from './arrangement-rating/arrangement-rating.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ArrangementRatingComponent } from './arrangement-rating/arrangement-rat
     ArragementReservationComponent,
     ArrangementCreationComponent,
     ReservationsComponent,
-    ArrangementRatingComponent
+    ArrangementRatingComponent,
+    VehiclesComponent
   ],
   imports: [CommonModule, RouterModule,MaterialModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
   exports: [HomeComponent,
