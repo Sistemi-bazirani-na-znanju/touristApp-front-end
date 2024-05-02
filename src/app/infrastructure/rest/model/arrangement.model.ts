@@ -11,8 +11,11 @@ export class Arrangement {
     date: Date;
     excursions: Excursion[];
     ratings: Rating[];
+    recommended?: boolean;
 
-    constructor(id: number, name: string, type: ArrangementType, price: number, averageRating: number, date: Date, excursions: Excursion[], ratings: Rating[]) {
+
+
+    constructor(id: number, name: string, type: ArrangementType, price: number, averageRating: number, date: Date, excursions: Excursion[], ratings: Rating[], recommended: boolean) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -21,6 +24,7 @@ export class Arrangement {
         this.date = date;
         this.excursions = excursions;
         this.ratings = ratings;
+        this.recommended = recommended
     }
 }
 

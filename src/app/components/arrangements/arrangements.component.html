@@ -2,7 +2,9 @@
   <h2><strong>Arrangements</strong></h2>
   <div class="reservations-container" *ngFor="let arrangement of displayedArrangements">
     <div class="reservations-card">
+      
         <div class="name-rate d-flex justify-content-between">
+          <p *ngIf="arrangement.recommended" class="recommended-text">Recommended</p>
           <p>Name: {{ arrangement.name }}</p>
           <p>Type: {{ getArrangementTypeName(arrangement.type) }}</p>
           <p>Price: {{ arrangement.price }}$</p>

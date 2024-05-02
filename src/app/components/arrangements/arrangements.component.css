@@ -5,7 +5,12 @@
     margin-bottom: 20px;
     width: 80vw;
   }
+
+  .recommended-text {
+    color: red; 
+  }
   
+
   h2 {
     text-align: center; 
     margin-top: 20px; 
