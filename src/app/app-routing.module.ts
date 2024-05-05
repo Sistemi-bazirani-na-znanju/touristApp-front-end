@@ -12,6 +12,7 @@ import { ArragementReservationComponent } from './components/arrangement-reserva
 import { ArrangementCreationComponent } from './components/arrangement-creation/arrangement-creation.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { ArrangementRatingComponent } from './components/arrangement-rating/arrangement-rating.component';
+import { VehiclesComponent } from './components/vehicles/vehicles.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'make-reservation/:id',
     component: ArragementReservationComponent
+  },
+  {
+    path: 'vehicles',
+    component: VehiclesComponent
   },
   {
     path: 'arrangement-creation',
