@@ -64,6 +64,21 @@ input {
   cursor: pointer;
   margin-top: 50px; /* Add margin to the top for spacing */
   margin-bottom: 15px;
+
+  &:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+  }
+
+  &:disabled{
+    cursor: default;
+    color: gray;
+    border-color: gray;
+
+    &:hover{
+      transform: scale(1);
+    }
+  }
 }
 
 .error-message {
@@ -72,4 +87,36 @@ input {
   margin-top: 5px; /* Provide some spacing at the top */
   margin-bottom: 20px; 
 }
+
+.destinations{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.single-destination{
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  width: 15%;
+}
+
+
+.single-destination input{
+  align-self: center;
+}
+
+.single-destination label {
+  white-space: nowrap;
+  align-self: center;
+  padding-bottom: 10px;
+  margin-right: 10px;
+
+}
+
+
 

@@ -25,8 +25,29 @@
       <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control" />
       <div *ngIf="registrationForm.hasError('passwordMismatch')" class="error-message">Passwords do not match</div>
 
+      
+      <fieldset class="destinations">
+        <legend>Choose your preferred destinations</legend>
+        <span *ngFor="let destination of destinationOptions" class="single-destination">
+            <label [for]="destination">{{ destination }}</label>
+            <input type="checkbox" [id]="destination" (change)="handleDestinationChange($event, destination)" />
+        </span>
+        <!-- Error message for minimum number of selected destinations -->
+      </fieldset>
+      <div *ngIf="destinationError" class="error-message">7 to 10 destinations must be selected.</div>
+      
+      <fieldset class="destinations">
+        <legend>Choose your preferred excursion types</legend>
+        <div *ngFor="let excursionType of excursionTypeOptions" class="single-destination">
+          <label [for]="excursionType">{{ excursionType }}</label>
+          <input type="checkbox" [id]="excursionType" (change)="handleExcursionTypeChange($event, excursionType)" />
+        </div>
+        <!-- Error message for minimum number of selected excursion types -->
+        
+      </fieldset>
+      <div *ngIf="excursionTypeError" class="error-message">3 excursion types must be selected.</div>
 
-      <button type="submit" [disabled]="!registrationForm.valid" class="submit-button">REGISTER</button>
+      <button type="submit" [disabled]="!registrationForm.valid || destinationError || excursionTypeError" class="submit-button">REGISTER</button>
     </div>
   </form>
 </div>
