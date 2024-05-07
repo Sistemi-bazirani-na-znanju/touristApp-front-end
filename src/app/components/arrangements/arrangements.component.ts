@@ -35,7 +35,7 @@ export class ArrangementComponent {
   }
   
   getArrangements(userId: number) {
-    this.arrangementService.getAll().subscribe({
+    this.arrangementService.getAll(this.authService.user$.getValue().id).subscribe({
         next: (arrangements: Arrangement[]) => {
             this.displayedArrangements = arrangements; 
             this.sortArrangements();
