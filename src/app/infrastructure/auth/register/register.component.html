@@ -47,7 +47,7 @@
       </fieldset>
       <div *ngIf="excursionTypeError" class="error-message">3 excursion types must be selected.</div>
 
-      <button type="submit" [disabled]="!registrationForm.valid || destinationError || excursionTypeError" class="submit-button">REGISTER</button>
+      <button type="submit" [disabled]="!registrationForm.valid" class="submit-button">REGISTER</button>
     </div>
   </form>
 </div>

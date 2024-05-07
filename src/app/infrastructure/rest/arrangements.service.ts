@@ -19,8 +19,8 @@ export class ArrangementService {
     }
 
 
-    getAll(): Observable<Arrangement[]> {
-        const path = this.basePath + 'arrangements';
+    getAll(userId : number): Observable<Arrangement[]> {
+        const path = this.basePath + 'arrangements/findAll/' + userId ;
         let result = this.http.get<Arrangement[]>(path, { headers: this.headers });
         return result;
     }

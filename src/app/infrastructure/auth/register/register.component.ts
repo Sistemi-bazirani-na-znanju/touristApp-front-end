@@ -117,14 +117,14 @@ export class RegisterComponent {
   }
 
   register(): void {
-    if (this.registrationForm.valid && !this.destinationError && !this.excursionTypeError) {
+    if (this.registrationForm.valid) {
       const registration: Registration = {
         firstName: this.registrationForm.value.firstName || "",
         lastName: this.registrationForm.value.lastName || "",
         email: this.registrationForm.value.email || "",
         password: this.registrationForm.value.password || "",
-        destinations: this.selectedDestinations,
-        excursionTypes: this.selectedExcursionTypes, // Pass selectedExcursionTypes as ExcursionType[]
+        destinations: (this.destinationError || this.excursionTypeError) ? [] : this.selectedDestinations,
+        excursionTypes: (this.destinationError || this.excursionTypeError) ? [] : this.selectedExcursionTypes, // Pass selectedExcursionTypes as ExcursionType[]
       };
 
       this.authService.register(registration).subscribe({
