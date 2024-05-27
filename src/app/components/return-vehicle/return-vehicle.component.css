@@ -1,0 +1,55 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 40px; /* Veći padding za udobnost */
+    border-radius: 10px; /* Veće zaobljenje za estetski izgled */
+    width: 50%; /* Širina 50% ekrana */
+    max-width: 600px; /* Maksimalna širina */
+    min-height: 200px; /* Minimalna visina */
+  }
+  
+  .modal-content h2 {
+    margin-top: 0;
+  }
+  
+  .modal-content select {
+    width: 100%; /* Puna širina */
+    padding: 10px; /* Dodati padding za udobnost */
+    margin-bottom: 20px; /* Razmak ispod select */
+    border: 1px solid #ccc; /* Blagi okvir */
+    border-radius: 5px; /* Blago zaobljeni uglovi */
+    font-size: 16px; /* Veći font */
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: flex-end; /* Dugmad na desnoj strani */
+  }
+  
+  .modal-buttons button {
+    margin-left: 10px;
+    padding: 10px;
+    &:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    &:disabled{
+        &:hover{
+            transform: scale(1);
+            cursor: default;
+        }
+
+        background-color: lightgray;
+    }
+  }

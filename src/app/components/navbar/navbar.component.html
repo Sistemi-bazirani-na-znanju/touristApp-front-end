@@ -16,6 +16,9 @@
       <button mat-menu-item *ngIf="user && hasRole(user.role, 'ROLE_USER')" [routerLink]="['all-reservations']">
         Your reservations
       </button>
+      <button mat-menu-item *ngIf="user && hasRole(user.role, 'ROLE_USER')" [routerLink]="['user-vehicle-reservations']">
+        Your vehicle reservations
+      </button>
 
     
       

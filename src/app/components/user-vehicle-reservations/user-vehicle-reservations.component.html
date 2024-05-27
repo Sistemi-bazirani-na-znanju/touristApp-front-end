@@ -1,0 +1,38 @@
+<div class="vehicle-reservations">
+
+    <div class="reservation-card" *ngFor="let reservation of vehicleReservations">
+            
+        <img src="{{ reservation.vehicle.imageURL }}" alt="Vehicle Image" class="image-container">
+            
+        <div class="content">
+            <div class="header-comp">
+                <h2>{{reservation.vehicle.modelName}}</h2>
+            </div>
+            
+            <p>Reservation time: <b>{{reservation.reservationTime}}</b></p>
+            <p>Scheduled pickup time: <b>{{reservation.scheduledPickupTime}}</b></p>
+            <p>Scheduled return time: <b>{{reservation.scheduledReturnTime}}</b></p>
+        </div>
+
+        <div class="buttons">
+            <button *ngIf="checkIfStatusIsScheduled(reservation)">Pickup vehicle</button>
+            <button *ngIf="checkIfStatusIsTaken(reservation)" (click)="openReturnModal(reservation.id)">Return vehicle</button>
+            <button *ngIf="checkIfStatusIsScheduled(reservation)" (click)="openCancelModal(reservation.id)">Cancel reservation</button>
+        </div>
+
+
+    </div>
+
+    <pd-vehicle-reservation-cancellation *ngIf="showCancelModal" 
+                                (cancel)="closeCancelModal()" 
+                                (submit)="cancelReservation($event)"
+                                >
+    </pd-vehicle-reservation-cancellation>
+
+    <pd-return-vehicle *ngIf="showReturnModal"
+        (cancelReturn) = "closeReturnModal()"
+        (submitReturn) = "submitVehicleReturn()">
+    </pd-return-vehicle>
+
+
+</div>

@@ -13,6 +13,7 @@ import { ArrangementCreationComponent } from './components/arrangement-creation/
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { ArrangementRatingComponent } from './components/arrangement-rating/arrangement-rating.component';
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
+import { UserVehicleReservationsComponent } from './components/user-vehicle-reservations/user-vehicle-reservations.component';
 
 const routes: Routes = [
   {
@@ -67,7 +68,12 @@ const routes: Routes = [
   {
     path: 'arrangement-rating/:id',
     component: ArrangementRatingComponent
-  }
+  },
+  {
+    path: 'user-vehicle-reservations',
+    component: UserVehicleReservationsComponent
+  },
+
 ];
 
 @NgModule({

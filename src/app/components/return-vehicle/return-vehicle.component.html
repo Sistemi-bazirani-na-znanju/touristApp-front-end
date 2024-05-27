@@ -1,0 +1,15 @@
+<div class="modal">
+    <div class="modal-content">
+      <h2>Return vehicle</h2>
+      <select [(ngModel)]="reason">
+        <option value="" disabled selected>Select vehicle condition</option>
+        <option value="FULLY_FUNCTIONAL">Fully functional</option>
+        <option value="DAMAGED">Damaged</option>
+        <option value="DIRTY">Dirty</option>
+      </select>
+      <div class="modal-buttons">
+        <button (click)="onCancel()">Cancel</button>
+        <button (click)="onSubmit()">Submit</button>
+      </div>
+    </div>
+  </div>
