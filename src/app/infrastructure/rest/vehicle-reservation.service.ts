@@ -25,7 +25,7 @@ export class VehicleReservationService {
     }
 
     create(vehicleReservation: VehicleReservation): Observable<VehicleReservation> {
-      const path = this.basePath + 'vehicle-reservation';
+      const path = this.basePath + 'vehicle-reservation/save/';
       return this.http.post<VehicleReservation>(path, vehicleReservation, { headers: this.headers });
   }
     cancelReservation(reservationId : number, reason : string) : Observable<VehicleReservation>{
