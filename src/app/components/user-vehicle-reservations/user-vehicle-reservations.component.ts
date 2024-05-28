@@ -30,6 +30,7 @@ export class UserVehicleReservationsComponent {
       this.vehicleReservationService.getUserReservations(user.id).subscribe({
         next : (reservations : VehicleReservation[])=>{
             this.vehicleReservations = reservations;
+            this.sortReservationsByStatus();
         }
       })
 
@@ -37,6 +38,18 @@ export class UserVehicleReservationsComponent {
 
   }
 
+  sortReservationsByStatus(): void {
+    const statusOrder = {
+      'TAKEN': 1,
+      'SCHEDULED': 2,
+      'CANCELLED': 3,
+      'RETURNED': 4
+    };
+
+    this.vehicleReservations.sort((a, b) => {
+      return statusOrder[a.status] - statusOrder[b.status];
+    });
+  }
 
   convertDateToString(date: Date): string {
     const day = ('0' + date.getDate()).slice(-2);
@@ -59,6 +72,17 @@ export class UserVehicleReservationsComponent {
   }
 
   cancelReservation(reason: string): void {
+    if(this.currentReservationId){
+      this.vehicleReservationService.cancelReservation(this.currentReservationId,reason).subscribe({
+        next : (result : VehicleReservation) =>{
+          window.location.reload();
+        }
+      })
+    }
+    else{
+      console.log("Invalid reservation selected")
+    }
+
     
   }
 
@@ -72,7 +96,17 @@ export class UserVehicleReservationsComponent {
     this.currentReservationId = null;
   }
 
-  submitVehicleReturn() : void{
+  submitVehicleReturn(state : string) : void{
+    if(this.currentReservationId){
+      this.vehicleReservationService.returnVehicle(this.currentReservationId,state).subscribe({
+        next : (result : VehicleReservation) =>{
+          window.location.reload();
+        }
+      })
+    }
+    else{
+      console.log("Invalid reservation selected")
+    }
 
   }
 
@@ -90,6 +124,29 @@ export class UserVehicleReservationsComponent {
       
     }
     return false;
+  }
+
+  pickupVehicle(reservationId : number){
+    this.vehicleReservationService.pickupVehicle(reservationId).subscribe({
+      next : (result : VehicleReservation) =>{
+        window.location.reload();
+      }
+    })
+  }
+
+  getStatusClass(status: ReservationStatus): string {
+    switch (status) {
+      case 'SCHEDULED':
+        return 'status-scheduled';
+      case 'TAKEN':
+        return 'status-taken';
+      case 'CANCELLED':
+        return 'status-cancelled';
+      case 'RETURNED':
+        return 'status-returned'
+      default:
+        return 'status-other';
+    }
   }
 
 
