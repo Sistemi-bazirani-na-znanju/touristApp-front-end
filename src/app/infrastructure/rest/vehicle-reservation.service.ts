@@ -24,6 +24,21 @@ export class VehicleReservationService {
       return this.http.get<VehicleReservation[]>(path,{headers: this.headers});
     }
 
+    cancelReservation(reservationId : number, reason : string) : Observable<VehicleReservation>{
+      const path = this.basePath + 'vehicle-reservation/cancel/' + reservationId ;
+      return this.http.put<VehicleReservation>(path, reason, {headers: this.headers});
+    }
+    
+    returnVehicle(reservationId : number, vehicleState : string) : Observable<VehicleReservation>{
+      const path = this.basePath + 'vehicle-reservation/return/' + reservationId ;
+      return this.http.put<VehicleReservation>(path, vehicleState, {headers: this.headers});
+    }
+
+    pickupVehicle(reservationId : number) : Observable<VehicleReservation>{
+      const path = this.basePath + 'vehicle-reservation/pickup/' + reservationId;
+      return this.http.put<VehicleReservation>(path, {headers: this.headers});
+    }
+
 
   
 }

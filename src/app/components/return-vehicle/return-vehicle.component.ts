@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ReturnVehicleComponent {
 
-  reason: string = '';
+ state : string = "";
 
   @Output() cancelReturn = new EventEmitter<void>();
   @Output() submitReturn = new EventEmitter<string>();
@@ -17,7 +17,12 @@ export class ReturnVehicleComponent {
   }
 
   onSubmit(): void {
-    this.submitReturn.emit(this.reason);
+    if(this.state){
+      this.submitReturn.emit(this.state);
+    }
+    else{
+      console.log("Select vehicle condition is required.")
+    }
   }
 
 }

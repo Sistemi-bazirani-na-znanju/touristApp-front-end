@@ -49,3 +49,25 @@
         cursor: pointer;
     }
 }
+
+.status-scheduled {
+    color: green;
+  }
+  
+  .status-taken {
+    color: orange;
+  }
+  
+  .status-cancelled {
+    color: red;
+  }
+
+  .status-returned{
+    color: blue;
+  }
+  
+  .status-other {
+    color: gray;
+  }
+
+  
