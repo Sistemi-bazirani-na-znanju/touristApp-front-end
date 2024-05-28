@@ -10,7 +10,7 @@
                     <p>Price: {{ v.price }}$</p>
                 </div>
             </div>
-            <button *ngIf="userId !== -1" [routerLink]="['/', v.id]">MAKE RESERVATION</button>
+            <button *ngIf="userId !== -1" [routerLink]="['/vehicle-reservation-form/', v.id]">MAKE RESERVATION</button>
         </div>
     </div>
 </div>

@@ -23,5 +23,10 @@ export class VehicleService {
     const path = this.basePath + 'vehicles';
     let result = this.http.get<Vehicle[]>(path, { headers: this.headers });
     return result;
-}
+  }
+
+  getById(id: number): Observable<Vehicle> {
+    const path = `${this.basePath}vehicles/${id}`;
+    return this.http.get<Vehicle>(path, { headers: this.headers });
+  }
 }

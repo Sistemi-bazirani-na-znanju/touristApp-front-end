@@ -24,6 +24,11 @@ export class VehicleReservationService {
       return this.http.get<VehicleReservation[]>(path,{headers: this.headers});
     }
 
+    create(vehicleReservation: VehicleReservation): Observable<VehicleReservation> {
+      const path = this.basePath + 'vehicle-reservation';
+      return this.http.post<VehicleReservation>(path, vehicleReservation, { headers: this.headers });
+  }
+
 
   
 }

@@ -14,6 +14,7 @@ import { ReservationsComponent } from './components/reservations/reservations.co
 import { ArrangementRatingComponent } from './components/arrangement-rating/arrangement-rating.component';
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { UserVehicleReservationsComponent } from './components/user-vehicle-reservations/user-vehicle-reservations.component';
+import { VehicleReservationFormComponent } from './components/vehicle-reservation-form/vehicle-reservation-form.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,10 @@ const routes: Routes = [
     path: 'user-vehicle-reservations',
     component: UserVehicleReservationsComponent
   },
+  {
+    path: 'vehicle-reservation-form/:id',
+    component: VehicleReservationFormComponent
+  }
 
 ];
 
