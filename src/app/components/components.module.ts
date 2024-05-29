@@ -17,6 +17,7 @@ import { UserVehicleReservationsComponent } from './user-vehicle-reservations/us
 import { VehicleReservationCancellationComponent } from './vehicle-reservation-cancellation/vehicle-reservation-cancellation.component';
 import { ReturnVehicleComponent } from './return-vehicle/return-vehicle.component';
 import { VehicleReservationFormComponent } from './vehicle-reservation-form/vehicle-reservation-form.component';
+import { AdminVehicleReservationsComponent } from './admin-vehicle-reservations/admin-vehicle-reservations.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { VehicleReservationFormComponent } from './vehicle-reservation-form/vehi
     UserVehicleReservationsComponent,
     VehicleReservationCancellationComponent,
     ReturnVehicleComponent,
-    VehicleReservationFormComponent
+    VehicleReservationFormComponent,
+    AdminVehicleReservationsComponent
   ],
   imports: [CommonModule, RouterModule,MaterialModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
   exports: [HomeComponent,

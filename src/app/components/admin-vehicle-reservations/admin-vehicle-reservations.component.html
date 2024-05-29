@@ -1,0 +1,48 @@
+<div class="vehicle-reservations">
+
+  <div class="reservation-card" *ngFor="let reservation of vehicleReservations">
+          
+      <img src="{{ reservation.vehicle.imageURL }}" alt="Vehicle Image" class="image-container">
+          
+      <div class="content">
+          <div class="header-comp">
+              <h2>{{reservation.vehicle.modelName}}</h2>
+          </div>
+          
+          <p>Reservation time: <b>{{reservation.reservationTime}}</b></p>
+          <p>Scheduled pickup time: <b>{{reservation.scheduledPickupTime}}</b></p>
+          <p>Scheduled return time: <b>{{reservation.scheduledReturnTime}}</b></p>
+          <p>Reservation status : <b [ngClass]="getStatusClass(reservation.status)">{{reservation.status}}</b></p>
+      </div>
+
+      <!-- <div class="buttons">
+          <button *ngIf="checkIfStatusIsScheduled(reservation)" (click) = "pickupVehicle(reservation.id)">Pickup vehicle</button>
+          <button *ngIf="checkIfStatusIsTaken(reservation)" (click)="openReturnModal(reservation.id)">Return vehicle</button>
+          <button *ngIf="checkIfStatusIsScheduled(reservation)" (click)="openCancelModal(reservation.id)">Cancel reservation</button>
+      </div> -->
+
+      <div *ngIf="checkIfUserIsSuspicious(reservation); else notFlagged" class="suspicious-user-warning" [ngClass]="'flagged'">
+        Warning: This user is flagged as suspicious.
+      </div>
+      <ng-template #notFlagged>
+        <div class="suspicious-user-warning" [ngClass]="'not-flagged'">
+          This user is not flagged as suspicious.
+        </div>
+      </ng-template>
+
+
+  </div>
+
+  <!-- <pd-vehicle-reservation-cancellation *ngIf="showCancelModal" 
+                              (cancel)="closeCancelModal()" 
+                              (submit)="cancelReservation($event)"
+                              >
+  </pd-vehicle-reservation-cancellation>
+
+  <pd-return-vehicle *ngIf="showReturnModal"
+      (cancelReturn) = "closeReturnModal()"
+      (submitReturn) = "submitVehicleReturn($event)">
+  </pd-return-vehicle> -->
+
+
+</div>

@@ -43,6 +43,9 @@ export class VehicleReservationService {
       return this.http.put<VehicleReservation>(path, {headers: this.headers});
     }
 
-
+    getScheduledReservations() : Observable<VehicleReservation[]>{
+      const path = this.basePath + 'vehicle-reservation/scheduled/';
+      return this.http.get<VehicleReservation[]>(path,{headers: this.headers});
+    }
   
 }

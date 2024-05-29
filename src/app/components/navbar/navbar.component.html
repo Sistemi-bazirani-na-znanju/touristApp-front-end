@@ -13,6 +13,10 @@
         Arrangement Creation
       </button>
 
+      <button mat-menu-item *ngIf="user && hasRole(user.role, 'ROLE_ADMIN')" [routerLink]="['admin-vehicle-reservations']">
+        Admin Vehicle Reservations
+      </button>
+
       <button mat-menu-item *ngIf="user && hasRole(user.role, 'ROLE_USER')" [routerLink]="['all-reservations']">
         Your reservations
       </button>
