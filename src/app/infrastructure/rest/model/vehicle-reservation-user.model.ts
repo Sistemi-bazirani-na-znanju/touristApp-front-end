@@ -5,7 +5,7 @@ export class VehicleReservationUser {
     firstName: string;
     lastName: string;
     role : string;
-    isSuspicious : boolean;
+    suspicious : boolean;
   
     constructor() {
         this.id = 0;
@@ -14,6 +14,6 @@ export class VehicleReservationUser {
         this.firstName = "";
         this.lastName = "";
         this.role = "";
-        this.isSuspicious = false;
+        this.suspicious = false;
     }
   }

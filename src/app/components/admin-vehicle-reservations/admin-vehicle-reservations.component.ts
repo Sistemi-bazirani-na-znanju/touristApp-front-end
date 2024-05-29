@@ -132,7 +132,7 @@ export class AdminVehicleReservationsComponent implements OnInit {
   }
 
   checkIfUserIsSuspicious(reservation: VehicleReservation): boolean {
-    return reservation.user?.isSuspicious || false;
+    return reservation.user?.suspicious || false;
   }
 
 }
