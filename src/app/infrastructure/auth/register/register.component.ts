@@ -126,10 +126,20 @@ export class RegisterComponent {
         destinations: (this.destinationError || this.excursionTypeError) ? [] : this.selectedDestinations,
         excursionTypes: (this.destinationError || this.excursionTypeError) ? [] : this.selectedExcursionTypes, // Pass selectedExcursionTypes as ExcursionType[]
       };
-
-      this.authService.register(registration).subscribe({
+      this.authService.registerAutoApp(registration).subscribe({
         next: () => {
-          this.router.navigate(['welcome']);
+          this.authService.register(registration).subscribe({
+            next: () => {
+              this.router.navigate(['welcome']);
+            },
+            error: (error) => {
+              if (error.status === 400) {
+                this.registrationForm.get('email')?.setErrors({ 'emailExists': true });
+              } else {
+                console.error('Error during registration:', error);
+              }
+            },
+          });
         },
         error: (error) => {
           if (error.status === 400) {
@@ -139,6 +149,7 @@ export class RegisterComponent {
           }
         },
       });
+      
     }
   }
 }
