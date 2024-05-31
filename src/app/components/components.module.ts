@@ -18,6 +18,8 @@ import { VehicleReservationCancellationComponent } from './vehicle-reservation-c
 import { ReturnVehicleComponent } from './return-vehicle/return-vehicle.component';
 import { VehicleReservationFormComponent } from './vehicle-reservation-form/vehicle-reservation-form.component';
 import { AdminVehicleReservationsComponent } from './admin-vehicle-reservations/admin-vehicle-reservations.component';
+import { LoanCreationComponent } from './loan-creation/loan-creation.component';
+import { UserLoansComponent } from './user-loans/user-loans.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { AdminVehicleReservationsComponent } from './admin-vehicle-reservations/
     VehicleReservationCancellationComponent,
     ReturnVehicleComponent,
     VehicleReservationFormComponent,
-    AdminVehicleReservationsComponent
+    AdminVehicleReservationsComponent,
+    LoanCreationComponent,
+    UserLoansComponent
   ],
   imports: [CommonModule, RouterModule,MaterialModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
   exports: [HomeComponent,

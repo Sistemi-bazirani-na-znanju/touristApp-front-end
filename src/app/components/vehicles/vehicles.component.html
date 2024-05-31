@@ -11,6 +11,7 @@
                 </div>
             </div>
             <button *ngIf="userId !== -1" [routerLink]="['/vehicle-reservation-form/', v.id]">MAKE RESERVATION</button>
+            <button *ngIf="userId !== -1" [routerLink]="['/vehicle-loan']">TAKE A LOAN</button>
         </div>
     </div>
 </div>

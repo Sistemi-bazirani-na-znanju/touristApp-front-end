@@ -1,0 +1,18 @@
+<div class="loans-container">
+    <h2><strong>User Loans</strong></h2>
+    <div class="loan-card" *ngFor="let loan of userLoans">
+      <div class="card-top">
+        <div class="loan-details">
+          <p>Loan Amount: {{ loan.amount }}</p>
+          <p>Number of Installments: {{ loan.numberOfInstallments }}</p>
+          <p>Approved: {{ loan.approved ? 'Yes' : 'No' }}</p>
+          <p>Start Date: {{ loan.startDate | date }}</p>
+          <p>End Date: {{ loan.endDate | date }}</p>
+          <p>Status: {{ loan.status }}</p>
+          <p *ngIf="loan.employmentStartDate">Employment Start Date: {{ loan.employmentStartDate | date }}</p>
+          <p *ngIf="loan.employmentEndDate">Employment End Date: {{ loan.employmentEndDate | date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

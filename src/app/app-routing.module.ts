@@ -16,6 +16,8 @@ import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { UserVehicleReservationsComponent } from './components/user-vehicle-reservations/user-vehicle-reservations.component';
 import { VehicleReservationFormComponent } from './components/vehicle-reservation-form/vehicle-reservation-form.component';
 import { AdminVehicleReservationsComponent } from './components/admin-vehicle-reservations/admin-vehicle-reservations.component';
+import { LoanCreationComponent } from './components/loan-creation/loan-creation.component';
+import { UserLoansComponent } from './components/user-loans/user-loans.component';
 
 const routes: Routes = [
   {
@@ -82,6 +84,14 @@ const routes: Routes = [
   {
     path: 'admin-vehicle-reservations',
     component: AdminVehicleReservationsComponent
+  },
+  {
+    path: 'vehicle-loan',
+    component: LoanCreationComponent
+  },
+  {
+    path: 'user-loans',
+    component: UserLoansComponent
   }
 
 ];
