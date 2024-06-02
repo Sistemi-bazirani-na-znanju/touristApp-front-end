@@ -1,0 +1,29 @@
+.loans-container {
+    min-height: 100vh;
+    padding: 5vh;
+  }
+  
+  .loan-card {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .card-top {
+    display: flex;
+    align-items: center;
+  }
+  
+  .loan-details {
+    flex: 1;
+  }
+  
+  h2 {
+    text-align: center; 
+    margin-top: 20px; 
+    font-size: 30px;
+    padding-bottom: 3vh;
+  }
+  

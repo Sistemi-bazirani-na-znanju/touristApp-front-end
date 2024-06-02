@@ -13,6 +13,13 @@ import { ArrangementCreationComponent } from './arrangement-creation/arrangement
 import { ReservationsComponent } from './reservations/reservations.component';
 import { ArrangementRatingComponent } from './arrangement-rating/arrangement-rating.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
+import { UserVehicleReservationsComponent } from './user-vehicle-reservations/user-vehicle-reservations.component';
+import { VehicleReservationCancellationComponent } from './vehicle-reservation-cancellation/vehicle-reservation-cancellation.component';
+import { ReturnVehicleComponent } from './return-vehicle/return-vehicle.component';
+import { VehicleReservationFormComponent } from './vehicle-reservation-form/vehicle-reservation-form.component';
+import { AdminVehicleReservationsComponent } from './admin-vehicle-reservations/admin-vehicle-reservations.component';
+import { LoanCreationComponent } from './loan-creation/loan-creation.component';
+import { UserLoansComponent } from './user-loans/user-loans.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +31,14 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
     ArrangementCreationComponent,
     ReservationsComponent,
     ArrangementRatingComponent,
-    VehiclesComponent
+    VehiclesComponent,
+    UserVehicleReservationsComponent,
+    VehicleReservationCancellationComponent,
+    ReturnVehicleComponent,
+    VehicleReservationFormComponent,
+    AdminVehicleReservationsComponent,
+    LoanCreationComponent,
+    UserLoansComponent
   ],
   imports: [CommonModule, RouterModule,MaterialModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
   exports: [HomeComponent,

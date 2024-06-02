@@ -1,0 +1,43 @@
+<div class="reservation-containers">
+  <h1>Vehicle Reservation</h1>
+</div>
+
+<div class="reservation-container">
+      <div class="reservations-card">
+
+        <div class="form-group">
+
+          <div class="name-rate d-flex justify-content-between">
+            <label>Vehicle Model:</label>
+              <h3>{{ vehicle?.modelName }}</h3>
+          </div>
+
+          <br>
+
+          <div>
+              <label for="pickupTime">Pickup Time:</label>
+              <br>
+              <input type="datetime-local" id="pickupTime" [(ngModel)]="pickupTime" name="pickupTime" />
+          </div>
+
+          <br>
+
+          <div>
+              <label for="returnTime">Return Time:</label>
+              <br>
+              <input type="datetime-local" id="returnTime" [(ngModel)]="returnTime" name="returnTime" />
+          </div>
+
+          <br>
+
+
+          <div>
+            <button (click)="submitReservation()" class="centered-button">Submit Reservation</button>
+          </div>
+
+        </div>
+
+      </div>
+</div>
+
+

@@ -4,7 +4,7 @@ import { Reservation } from '../../infrastructure/rest/model/reservation.model';
 import { ArrangementService } from '../../infrastructure/rest/arrangements.service';
 import { AuthService } from '../../infrastructure/auth';
 import { RegisteredUserService } from '../../infrastructure/rest/registered-user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationService } from '../../infrastructure/rest/reservation.service';
 
 @Component({
@@ -23,7 +23,8 @@ export class ReservationsComponent {
               private authService: AuthService,
               private reservationService: ReservationService,
               private userService: RegisteredUserService,
-              private route: ActivatedRoute){
+              private route: ActivatedRoute,
+              private router: Router){
   }
 
   ngOnInit(): void {
@@ -54,5 +55,9 @@ export class ReservationsComponent {
       },
       error: (error: any) => console.log(error)
     });        
+  }
+
+  redirectToVehicles(): void {
+    this.router.navigate(['/vehicles']); // Navigate to '/vehicles' path
   }
 }

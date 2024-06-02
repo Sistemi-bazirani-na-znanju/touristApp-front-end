@@ -122,6 +122,7 @@ export class AuthService {
   }
 
   register(registration: Registration): Observable<AuthenticationResponse> {
+
     return this.http
       .post<AuthenticationResponse>(environment.apiHost + 'auth/register', registration)
       .pipe(
@@ -133,6 +134,9 @@ export class AuthService {
       );
   }
   
+  registerAutoApp(registration: Registration): Observable<AuthenticationResponse>{
+    return this.http.post<AuthenticationResponse>('http://localhost:8081/api/' + 'auth/register', registration) 
+  }
   activateRegistratedUser(id: number): void {
     console.log("Sad treba da se aktivira " + id);
     

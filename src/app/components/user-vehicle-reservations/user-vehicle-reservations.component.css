@@ -1,0 +1,73 @@
+.vehicle-reservations{
+    display: flex;
+    flex-direction: column;
+    padding-top: 3%;
+}
+
+
+.reservation-card{
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.image-container{
+  width: 30vh; /* Set the constant width */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 20px; /* Add margin for spacing */
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+
+.header-comp{
+    align-self: center;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.buttons button{
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    &:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}
+
+.status-scheduled {
+    color: green;
+  }
+  
+  .status-taken {
+    color: orange;
+  }
+  
+  .status-cancelled {
+    color: red;
+  }
+
+  .status-returned{
+    color: blue;
+  }
+  
+  .status-other {
+    color: gray;
+  }
+
+  

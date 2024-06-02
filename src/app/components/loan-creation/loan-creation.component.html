@@ -1,0 +1,40 @@
+<div class="main-div">
+    <div class="form-container">
+        <h1>Loan Application</h1>
+        <form (ngSubmit)="onSubmit()" #loanForm="ngForm">
+            <div class="form-group">
+                <label for="totalAmount">Total Amount:</label>
+                <input type="number" id="totalAmount" name="totalAmount" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="installmentNumber">Number of Installments:</label>
+                <input type="number" id="installmentNumber" name="installmentNumber" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="employmentStatus">Employment Status:</label>
+                <select id="employmentStatus" name="employmentStatus" ngModel required (change)="onEmploymentStatusChange($event)">
+                    <option value="UNEMPLOYED">Unemployed</option>
+                    <option value="TEMPORARY_EMPLOYMENT">Employed for a Certain Period of Time</option>
+                    <option value="PERMANENT_EMPLOYMENT">Employed for an Indefinite Period of Time</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ageNumber">Your age:</label>
+                <input type="number" id="ageNumber" name="ageNumber" ngModel required>
+            </div>
+            <div class="form-group" *ngIf="showEmploymentDates">
+                <label for="employmentStartDate">Effective Date of Employment Contract:</label>
+                <input type="date" id="employmentStartDate" name="employmentStartDate" ngModel>
+            </div>
+            <div class="form-group" *ngIf="showEndDate">
+                <label for="employmentEndDate">Expiry Date of Employment Contract:</label>
+                <input type="date" id="employmentEndDate" name="employmentEndDate" ngModel>
+            </div>
+            <div class="form-group" *ngIf="showSalary">
+                <label for="salaryValue">Monthly salary:</label>
+                <input type="number" id="salaryValue" name="salaryValue" ngModel>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>

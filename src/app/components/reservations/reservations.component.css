@@ -36,6 +36,22 @@ header {
     margin-right: 20px;
 }
 
+.reservations-container button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    border: green 1px solid;
+    border-radius: 0.3125rem;
+    height: 3rem; 
+    transition: background-color 0.15s;
+    cursor: pointer;
+    width: 20%; 
+    color: white;
+    margin: 0 auto; 
+  }
+  
+
 .reservations-card {
     background-color: #f1f1f1;
     border: 1px solid #ddd;
