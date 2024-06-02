@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 })
 export class LoanCreationComponent {
   showEmploymentDates = false;
+  showSalary = false
   showEndDate = false;
   user: any;
   userId: any;
@@ -31,6 +32,8 @@ export class LoanCreationComponent {
     const status = (event.target as HTMLSelectElement).value as UserEmploymentStatus;
     this.showEmploymentDates = status !== UserEmploymentStatus.UNEMPLOYED;
     this.showEndDate = status === UserEmploymentStatus.TEMPORARY_EMPLOYMENT;
+    this.showSalary = status !== UserEmploymentStatus.UNEMPLOYED;
+
   }
 
   onSubmit(): void {
@@ -48,7 +51,9 @@ export class LoanCreationComponent {
       this.loanForm.value.totalAmount,
       this.loanForm.value.employmentStatus as UserEmploymentStatus,
       this.loanForm.value.employmentStartDate ? new Date(this.loanForm.value.employmentStartDate) : null,
-      this.loanForm.value.employmentEndDate ? new Date(this.loanForm.value.employmentEndDate) : null
+      this.loanForm.value.employmentEndDate ? new Date(this.loanForm.value.employmentEndDate) : null,
+      this.loanForm.value.salaryValue ? this.loanForm.value.salaryValue : 0,
+      this.loanForm.value.ageNumber
     );
 
     console.log(loan);

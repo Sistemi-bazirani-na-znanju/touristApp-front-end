@@ -12,6 +12,8 @@ export class Loan {
   status: UserEmploymentStatus;
   employmentStartDate: Date | null;
   employmentEndDate: Date | null;
+  salary: number;
+  age:number;
 
   constructor(
     id: number,
@@ -23,7 +25,9 @@ export class Loan {
     amount: number,
     status: UserEmploymentStatus,
     employmentStartDate: Date| null,
-    employmentEndDate: Date| null
+    employmentEndDate: Date| null,
+    salary: number,
+    age: number
   ) {
     this.id = id;
     this.user = user;
@@ -35,6 +39,8 @@ export class Loan {
     this.status = status;
     this.employmentStartDate = employmentStartDate;
     this.employmentEndDate = employmentEndDate;
+    this.salary = salary
+    this.age = age
   }
   
 }

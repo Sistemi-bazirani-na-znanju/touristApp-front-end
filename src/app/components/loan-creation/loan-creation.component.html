@@ -18,6 +18,10 @@
                     <option value="PERMANENT_EMPLOYMENT">Employed for an Indefinite Period of Time</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label for="ageNumber">Your age:</label>
+                <input type="number" id="ageNumber" name="ageNumber" ngModel required>
+            </div>
             <div class="form-group" *ngIf="showEmploymentDates">
                 <label for="employmentStartDate">Effective Date of Employment Contract:</label>
                 <input type="date" id="employmentStartDate" name="employmentStartDate" ngModel>
@@ -25,6 +29,10 @@
             <div class="form-group" *ngIf="showEndDate">
                 <label for="employmentEndDate">Expiry Date of Employment Contract:</label>
                 <input type="date" id="employmentEndDate" name="employmentEndDate" ngModel>
+            </div>
+            <div class="form-group" *ngIf="showSalary">
+                <label for="salaryValue">Monthly salary:</label>
+                <input type="number" id="salaryValue" name="salaryValue" ngModel>
             </div>
             <button type="submit">Submit</button>
         </form>
